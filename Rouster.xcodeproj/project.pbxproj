@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		40A40C681A97A52000D4F834 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C671A97A52000D4F834 /* main.m */; };
+		40A40C6B1A97A52000D4F834 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C6A1A97A52000D4F834 /* AppDelegate.m */; };
+		40A40C6E1A97A52000D4F834 /* Rouster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C6C1A97A52000D4F834 /* Rouster.xcdatamodeld */; };
+		40A40C711A97A52000D4F834 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C701A97A52000D4F834 /* ViewController.m */; };
+		40A40C741A97A52000D4F834 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40A40C721A97A52000D4F834 /* Main.storyboard */; };
+		40A40C761A97A52000D4F834 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A40C751A97A52000D4F834 /* Images.xcassets */; };
+		40A40C791A97A52000D4F834 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A40C771A97A52000D4F834 /* LaunchScreen.xib */; };
+		40A40C851A97A52100D4F834 /* RousterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C841A97A52100D4F834 /* RousterTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		40A40C7F1A97A52000D4F834 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40A40C5A1A97A52000D4F834 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40A40C611A97A52000D4F834;
+			remoteInfo = Rouster;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		40A40C621A97A52000D4F834 /* Rouster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rouster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40A40C661A97A52000D4F834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40A40C671A97A52000D4F834 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		40A40C691A97A52000D4F834 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		40A40C6A1A97A52000D4F834 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		40A40C6D1A97A52000D4F834 /* Rouster.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rouster.xcdatamodel; sourceTree = "<group>"; };
+		40A40C6F1A97A52000D4F834 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		40A40C701A97A52000D4F834 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		40A40C731A97A52000D4F834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		40A40C751A97A52000D4F834 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		40A40C781A97A52000D4F834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		40A40C7E1A97A52000D4F834 /* RousterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RousterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40A40C831A97A52100D4F834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40A40C841A97A52100D4F834 /* RousterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RousterTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		40A40C5F1A97A52000D4F834 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40A40C7B1A97A52000D4F834 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		40A40C591A97A52000D4F834 = {
+			isa = PBXGroup;
+			children = (
+				40A40C641A97A52000D4F834 /* Rouster */,
+				40A40C811A97A52100D4F834 /* RousterTests */,
+				40A40C631A97A52000D4F834 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		40A40C631A97A52000D4F834 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40A40C621A97A52000D4F834 /* Rouster.app */,
+				40A40C7E1A97A52000D4F834 /* RousterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40A40C641A97A52000D4F834 /* Rouster */ = {
+			isa = PBXGroup;
+			children = (
+				40A40C691A97A52000D4F834 /* AppDelegate.h */,
+				40A40C6A1A97A52000D4F834 /* AppDelegate.m */,
+				40A40C6F1A97A52000D4F834 /* ViewController.h */,
+				40A40C701A97A52000D4F834 /* ViewController.m */,
+				40A40C721A97A52000D4F834 /* Main.storyboard */,
+				40A40C751A97A52000D4F834 /* Images.xcassets */,
+				40A40C771A97A52000D4F834 /* LaunchScreen.xib */,
+				40A40C6C1A97A52000D4F834 /* Rouster.xcdatamodeld */,
+				40A40C651A97A52000D4F834 /* Supporting Files */,
+			);
+			path = Rouster;
+			sourceTree = "<group>";
+		};
+		40A40C651A97A52000D4F834 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				40A40C661A97A52000D4F834 /* Info.plist */,
+				40A40C671A97A52000D4F834 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		40A40C811A97A52100D4F834 /* RousterTests */ = {
+			isa = PBXGroup;
+			children = (
+				40A40C841A97A52100D4F834 /* RousterTests.m */,
+				40A40C821A97A52100D4F834 /* Supporting Files */,
+			);
+			path = RousterTests;
+			sourceTree = "<group>";
+		};
+		40A40C821A97A52100D4F834 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				40A40C831A97A52100D4F834 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		40A40C611A97A52000D4F834 /* Rouster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40A40C881A97A52100D4F834 /* Build configuration list for PBXNativeTarget "Rouster" */;
+			buildPhases = (
+				40A40C5E1A97A52000D4F834 /* Sources */,
+				40A40C5F1A97A52000D4F834 /* Frameworks */,
+				40A40C601A97A52000D4F834 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rouster;
+			productName = Rouster;
+			productReference = 40A40C621A97A52000D4F834 /* Rouster.app */;
+			productType = "com.apple.product-type.application";
+		};
+		40A40C7D1A97A52000D4F834 /* RousterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40A40C8B1A97A52100D4F834 /* Build configuration list for PBXNativeTarget "RousterTests" */;
+			buildPhases = (
+				40A40C7A1A97A52000D4F834 /* Sources */,
+				40A40C7B1A97A52000D4F834 /* Frameworks */,
+				40A40C7C1A97A52000D4F834 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				40A40C801A97A52000D4F834 /* PBXTargetDependency */,
+			);
+			name = RousterTests;
+			productName = RousterTests;
+			productReference = 40A40C7E1A97A52000D4F834 /* RousterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		40A40C5A1A97A52000D4F834 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Eric Mentele";
+				TargetAttributes = {
+					40A40C611A97A52000D4F834 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					40A40C7D1A97A52000D4F834 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 40A40C611A97A52000D4F834;
+					};
+				};
+			};
+			buildConfigurationList = 40A40C5D1A97A52000D4F834 /* Build configuration list for PBXProject "Rouster" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 40A40C591A97A52000D4F834;
+			productRefGroup = 40A40C631A97A52000D4F834 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				40A40C611A97A52000D4F834 /* Rouster */,
+				40A40C7D1A97A52000D4F834 /* RousterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		40A40C601A97A52000D4F834 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40A40C741A97A52000D4F834 /* Main.storyboard in Resources */,
+				40A40C791A97A52000D4F834 /* LaunchScreen.xib in Resources */,
+				40A40C761A97A52000D4F834 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40A40C7C1A97A52000D4F834 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		40A40C5E1A97A52000D4F834 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40A40C6E1A97A52000D4F834 /* Rouster.xcdatamodeld in Sources */,
+				40A40C6B1A97A52000D4F834 /* AppDelegate.m in Sources */,
+				40A40C711A97A52000D4F834 /* ViewController.m in Sources */,
+				40A40C681A97A52000D4F834 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40A40C7A1A97A52000D4F834 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40A40C851A97A52100D4F834 /* RousterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		40A40C801A97A52000D4F834 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40A40C611A97A52000D4F834 /* Rouster */;
+			targetProxy = 40A40C7F1A97A52000D4F834 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		40A40C721A97A52000D4F834 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40A40C731A97A52000D4F834 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		40A40C771A97A52000D4F834 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40A40C781A97A52000D4F834 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		40A40C861A97A52100D4F834 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		40A40C871A97A52100D4F834 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		40A40C891A97A52100D4F834 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Rouster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		40A40C8A1A97A52100D4F834 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Rouster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		40A40C8C1A97A52100D4F834 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RousterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rouster.app/Rouster";
+			};
+			name = Debug;
+		};
+		40A40C8D1A97A52100D4F834 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RousterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rouster.app/Rouster";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		40A40C5D1A97A52000D4F834 /* Build configuration list for PBXProject "Rouster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40A40C861A97A52100D4F834 /* Debug */,
+				40A40C871A97A52100D4F834 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40A40C881A97A52100D4F834 /* Build configuration list for PBXNativeTarget "Rouster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40A40C891A97A52100D4F834 /* Debug */,
+				40A40C8A1A97A52100D4F834 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		40A40C8B1A97A52100D4F834 /* Build configuration list for PBXNativeTarget "RousterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40A40C8C1A97A52100D4F834 /* Debug */,
+				40A40C8D1A97A52100D4F834 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		40A40C6C1A97A52000D4F834 /* Rouster.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				40A40C6D1A97A52000D4F834 /* Rouster.xcdatamodel */,
+			);
+			currentVersion = 40A40C6D1A97A52000D4F834 /* Rouster.xcdatamodel */;
+			path = Rouster.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 40A40C5A1A97A52000D4F834 /* Project object */;
+}
