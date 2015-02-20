@@ -15,6 +15,7 @@
 		40A40C761A97A52000D4F834 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A40C751A97A52000D4F834 /* Images.xcassets */; };
 		40A40C791A97A52000D4F834 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A40C771A97A52000D4F834 /* LaunchScreen.xib */; };
 		40A40C851A97A52100D4F834 /* RousterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C841A97A52100D4F834 /* RousterTests.m */; };
+		40A40C911A97B9EB00D4F834 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 40A40C901A97B9EB00D4F834 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		40A40C7E1A97A52000D4F834 /* RousterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RousterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A40C831A97A52100D4F834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40A40C841A97A52100D4F834 /* RousterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RousterTests.m; sourceTree = "<group>"; };
+		40A40C901A97B9EB00D4F834 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		40A40C651A97A52000D4F834 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				40A40C901A97B9EB00D4F834 /* .gitignore */,
 				40A40C661A97A52000D4F834 /* Info.plist */,
 				40A40C671A97A52000D4F834 /* main.m */,
 			);
@@ -202,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40A40C911A97B9EB00D4F834 /* .gitignore in Resources */,
 				40A40C741A97A52000D4F834 /* Main.storyboard in Resources */,
 				40A40C791A97A52000D4F834 /* LaunchScreen.xib in Resources */,
 				40A40C761A97A52000D4F834 /* Images.xcassets in Resources */,
