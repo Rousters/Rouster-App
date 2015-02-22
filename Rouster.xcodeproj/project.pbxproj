@@ -16,6 +16,7 @@
 		40A40C791A97A52000D4F834 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A40C771A97A52000D4F834 /* LaunchScreen.xib */; };
 		40A40C851A97A52100D4F834 /* RousterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C841A97A52100D4F834 /* RousterTests.m */; };
 		40A40C911A97B9EB00D4F834 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 40A40C901A97B9EB00D4F834 /* .gitignore */; };
+		488B6F531A99953B004BDF1E /* Tasks in Resources */ = {isa = PBXBuildFile; fileRef = 488B6F521A99953B004BDF1E /* Tasks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		40A40C831A97A52100D4F834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40A40C841A97A52100D4F834 /* RousterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RousterTests.m; sourceTree = "<group>"; };
 		40A40C901A97B9EB00D4F834 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		488B6F521A99953B004BDF1E /* Tasks */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tasks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				40A40C771A97A52000D4F834 /* LaunchScreen.xib */,
 				40A40C6C1A97A52000D4F834 /* Rouster.xcdatamodeld */,
 				40A40C651A97A52000D4F834 /* Supporting Files */,
+				488B6F521A99953B004BDF1E /* Tasks */,
 			);
 			path = Rouster;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			files = (
 				40A40C911A97B9EB00D4F834 /* .gitignore in Resources */,
 				40A40C741A97A52000D4F834 /* Main.storyboard in Resources */,
+				488B6F531A99953B004BDF1E /* Tasks in Resources */,
 				40A40C791A97A52000D4F834 /* LaunchScreen.xib in Resources */,
 				40A40C761A97A52000D4F834 /* Images.xcassets in Resources */,
 			);
@@ -420,6 +424,7 @@
 				40A40C8A1A97A52100D4F834 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		40A40C8B1A97A52100D4F834 /* Build configuration list for PBXNativeTarget "RousterTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +433,7 @@
 				40A40C8D1A97A52100D4F834 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
