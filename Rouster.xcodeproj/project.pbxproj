@@ -18,7 +18,7 @@
 		40A40C791A97A52000D4F834 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A40C771A97A52000D4F834 /* LaunchScreen.xib */; };
 		40A40C851A97A52100D4F834 /* RousterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C841A97A52100D4F834 /* RousterTests.m */; };
 		40A40C911A97B9EB00D4F834 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 40A40C901A97B9EB00D4F834 /* .gitignore */; };
-		48132FA61A9CF8D0005BEF07 /* Pedometer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48132FA51A9CF8D0005BEF07 /* Pedometer.m */; };
+		48132FA91A9CFBCE005BEF07 /* PedometerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48132FA81A9CFBCE005BEF07 /* PedometerController.m */; };
 		488B6F531A99953B004BDF1E /* Tasks in Resources */ = {isa = PBXBuildFile; fileRef = 488B6F521A99953B004BDF1E /* Tasks */; };
 /* End PBXBuildFile section */
 
@@ -52,8 +52,8 @@
 		40A40C831A97A52100D4F834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40A40C841A97A52100D4F834 /* RousterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RousterTests.m; sourceTree = "<group>"; };
 		40A40C901A97B9EB00D4F834 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		48132FA41A9CF8D0005BEF07 /* Pedometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pedometer.h; sourceTree = "<group>"; };
-		48132FA51A9CF8D0005BEF07 /* Pedometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pedometer.m; sourceTree = "<group>"; };
+		48132FA71A9CFBCE005BEF07 /* PedometerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PedometerController.h; sourceTree = "<group>"; };
+		48132FA81A9CFBCE005BEF07 /* PedometerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PedometerController.m; sourceTree = "<group>"; };
 		488B6F521A99953B004BDF1E /* Tasks */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tasks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,8 +86,8 @@
 		4075C80F1A9BF3C4007EA5B3 /* Controller Layer */ = {
 			isa = PBXGroup;
 			children = (
-				48132FA41A9CF8D0005BEF07 /* Pedometer.h */,
-				48132FA51A9CF8D0005BEF07 /* Pedometer.m */,
+				48132FA71A9CFBCE005BEF07 /* PedometerController.h */,
+				48132FA81A9CFBCE005BEF07 /* PedometerController.m */,
 				40A40C691A97A52000D4F834 /* AppDelegate.h */,
 				40A40C6A1A97A52000D4F834 /* AppDelegate.m */,
 				4075C80B1A9BF227007EA5B3 /* AlarmViewController.h */,
@@ -270,9 +270,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4075C80D1A9BF227007EA5B3 /* AlarmViewController.m in Sources */,
-				48132FA61A9CF8D0005BEF07 /* Pedometer.m in Sources */,
 				4075C8161A9BF61E007EA5B3 /* DashboardViewController.m in Sources */,
 				40A40C6E1A97A52000D4F834 /* Rouster.xcdatamodeld in Sources */,
+				48132FA91A9CFBCE005BEF07 /* PedometerController.m in Sources */,
 				40A40C6B1A97A52000D4F834 /* AppDelegate.m in Sources */,
 				4075C8131A9BF3FE007EA5B3 /* InstructionsViewController.m in Sources */,
 				40A40C681A97A52000D4F834 /* main.m in Sources */,

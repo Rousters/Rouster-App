@@ -1,5 +1,5 @@
 //
-//  Pedometer.h
+//  PedometerController.h
 //  Rouster
 //
 //  Created by Rodrigo Carballo on 2/24/15.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Pedometer : NSObject
+@interface PedometerController : NSObject
 
 @end

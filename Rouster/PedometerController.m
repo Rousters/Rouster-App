@@ -1,13 +1,13 @@
 //
-//  Pedometer.m
+//  PedometerController.m
 //  Rouster
 //
 //  Created by Rodrigo Carballo on 2/24/15.
 //  Copyright (c) 2015 Eric Mentele. All rights reserved.
 //
 
-#import "Pedometer.h"
+#import "PedometerController.h"
 
-@implementation Pedometer
+@implementation PedometerController
 
 @end
