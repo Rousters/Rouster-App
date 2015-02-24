@@ -82,6 +82,7 @@ NSOperationQueue *_stepQueue;
                                                fromDate:now];
     
     NSDate *beginOfDay = [calendar dateFromComponents:components];
+    //NSdate *beginOfWakeUp =
     
     
     [_stepCounter queryStepCountStartingFrom:beginOfDay
@@ -115,7 +116,8 @@ NSOperationQueue *_stepQueue;
     }
     
     _isLiveCounting = YES;
-    _stepsAtBeginOfLiveCounting = self.stepsToday;
+    //_stepsAtBeginOfLiveCounting = self.stepsToday;
+    _stepsAtBeginOfLiveCounting = 0;
     [_stepCounter startStepCountingUpdatesToQueue:_stepQueue
                                          updateOn:1
                                       withHandler:^(NSInteger numberOfSteps, NSDate *timestamp, NSError *error) {
