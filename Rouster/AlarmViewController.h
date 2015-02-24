@@ -10,4 +10,5 @@
 
 @interface AlarmViewController : UIViewController
 
+-(void) triggerAlarm:(NSTimer*)timeCheck;
 @end

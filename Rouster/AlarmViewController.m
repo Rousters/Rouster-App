@@ -8,11 +8,12 @@
 
 #import "AlarmViewController.h"
 
-@interface AlarmViewController ()
+@interface AlarmViewController () 
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 @property (weak, nonatomic) IBOutlet UILabel *commitmentLabel;
-
+@property (weak, nonatomic) NSDate *alarmTime;
+@property (weak, nonatomic) NSTimer *checkTime;
 @end
 
 @implementation AlarmViewController
@@ -21,15 +22,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
   //Set time pickers default time position to the last selected time or the current time.
-  NSDate *lastAlarm = [[NSUserDefaults standardUserDefaults]
+  self.alarmTime = [[NSUserDefaults standardUserDefaults]
                           objectForKey:@"alarmTime"];
-  if (lastAlarm != nil) {
+  if (self.alarmTime != nil) {
     
-  self.timePicker.date =  lastAlarm;
+  self.timePicker.date =  self.alarmTime;
   } else {
     
     self.timePicker.date = [NSDate date];
   }//if else
+  
+  
 }//viewDidLoad
 
 
@@ -46,21 +49,29 @@
   NSString *timeCommit = [committed stringByAppendingString:time];
   self.commitmentLabel.text = timeCommit;
   //Save selected time.
+  self.alarmTime = [[NSUserDefaults standardUserDefaults]
+                    objectForKey:@"alarmTime"];
   [[NSUserDefaults standardUserDefaults] setObject:self.timePicker.date forKey:@"alarmTime"];
   [[NSUserDefaults standardUserDefaults] synchronize];
   
+  self.checkTime = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(triggerAlarm:) userInfo:nil repeats:true];
+  NSLog(@"%@", self.alarmTime);
 }//commitTime
 
 
--(void)fireAlarm:(NSDate*)fireTime {
+#pragma mark - Trigger Alarm
+//Check for match every 60 seconds. Fire alarm when match exists.
+-(void) triggerAlarm:(NSTimer *)timeCheck {
   
   NSDate *currentTime = [NSDate date];
-  
-  while (currentTime != fireTime) {
+  NSLog(@"checking for time");
+
+  if (currentTime >= self.alarmTime) {
     
-    
+    NSLog(@"WAKE UP!!!!!!!");
   }
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

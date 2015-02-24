@@ -64,7 +64,7 @@
                                     <action selector="commitTime:" destination="J74-pY-bu3" eventType="touchUpInside" id="Hsf-iS-z5I"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="PCL-in-h24">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="PCL-in-h24">
                                 <rect key="frame" x="0.0" y="219" width="600" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="446423535.34786201">
                                     <!--2015-02-23 22:32:15 +0000-->
