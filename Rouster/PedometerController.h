@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface PedometerController : NSObject
+
+@property (readonly) NSInteger stepsToday;
 
 @end

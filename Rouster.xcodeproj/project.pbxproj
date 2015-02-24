@@ -54,6 +54,7 @@
 		40A40C901A97B9EB00D4F834 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		48132FA71A9CFBCE005BEF07 /* PedometerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PedometerController.h; sourceTree = "<group>"; };
 		48132FA81A9CFBCE005BEF07 /* PedometerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PedometerController.m; sourceTree = "<group>"; };
+		48132FAC1A9CFCD2005BEF07 /* Rouster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Rouster.entitlements; sourceTree = "<group>"; };
 		488B6F521A99953B004BDF1E /* Tasks */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tasks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +132,7 @@
 		40A40C641A97A52000D4F834 /* Rouster */ = {
 			isa = PBXGroup;
 			children = (
+				48132FAC1A9CFCD2005BEF07 /* Rouster.entitlements */,
 				4075C8101A9BF3C7007EA5B3 /* View Layer */,
 				4075C80F1A9BF3C4007EA5B3 /* Controller Layer */,
 				4075C80E1A9BF3C0007EA5B3 /* Model Layer */,
@@ -216,6 +218,12 @@
 				TargetAttributes = {
 					40A40C611A97A52000D4F834 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 33F9QSSJDD;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 0;
+							};
+						};
 					};
 					40A40C7D1A97A52000D4F834 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -397,9 +405,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rouster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -407,9 +419,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rouster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
