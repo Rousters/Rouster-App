@@ -7,7 +7,7 @@
         <!--Instructions-->
         <scene sceneID="dTE-W3-cID">
             <objects>
-                <viewController title="Instructions" id="NUS-Qh-DP3" customClass="UITabBarController" sceneMemberID="viewController">
+                <viewController title="Instructions" id="NUS-Qh-DP3" customClass="InstructionsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="23Z-iR-2aB"/>
                         <viewControllerLayoutGuide type="bottom" id="xTc-87-220"/>
@@ -26,7 +26,7 @@
         <!--Dashboard-->
         <scene sceneID="lcs-QG-mC1">
             <objects>
-                <viewController title="Dashboard" id="ZeW-ef-JzV" sceneMemberID="viewController">
+                <viewController title="Dashboard" id="ZeW-ef-JzV" customClass="DashboardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dCy-k4-AfW"/>
                         <viewControllerLayoutGuide type="bottom" id="r1H-Fq-OWL"/>
@@ -46,7 +46,7 @@
         <!--Alarm-->
         <scene sceneID="4hg-RA-dId">
             <objects>
-                <viewController title="Alarm" id="J74-pY-bu3" customClass="UITabBarController" sceneMemberID="viewController">
+                <viewController title="Alarm" id="J74-pY-bu3" customClass="AlarmViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wCq-e8-AbN"/>
                         <viewControllerLayoutGuide type="bottom" id="UjX-ot-vew"/>
@@ -55,19 +55,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awu-qY-Xxf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awu-qY-Xxf">
                                 <rect key="frame" x="273" y="513" width="54" height="30"/>
                                 <state key="normal" title="Commit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="commitTime:" destination="J74-pY-bu3" eventType="touchUpInside" id="Hsf-iS-z5I"/>
+                                </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="PCL-in-h24">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="PCL-in-h24">
                                 <rect key="frame" x="0.0" y="219" width="600" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="446423535.34786201">
                                     <!--2015-02-23 22:32:15 +0000-->
                                 </date>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What time will you wake up?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTQ-ex-EU0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What time will you wake up?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTQ-ex-EU0">
                                 <rect key="frame" x="191" y="106" width="219" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -75,8 +78,21 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="awu-qY-Xxf" firstAttribute="centerX" secondItem="PCL-in-h24" secondAttribute="centerX" id="ART-vf-txv"/>
+                            <constraint firstItem="CTQ-ex-EU0" firstAttribute="top" secondItem="wCq-e8-AbN" secondAttribute="bottom" constant="86" id="Ecf-Bg-kFU"/>
+                            <constraint firstAttribute="trailing" secondItem="PCL-in-h24" secondAttribute="trailing" id="MRP-Sl-VBH"/>
+                            <constraint firstItem="UjX-ot-vew" firstAttribute="top" secondItem="awu-qY-Xxf" secondAttribute="bottom" constant="8" symbolic="YES" id="PGj-Fy-DU4"/>
+                            <constraint firstItem="PCL-in-h24" firstAttribute="centerY" secondItem="bID-KU-DyS" secondAttribute="centerY" id="dEe-4D-Rwq"/>
+                            <constraint firstItem="PCL-in-h24" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leading" id="jbX-R6-T09"/>
+                            <constraint firstItem="CTQ-ex-EU0" firstAttribute="centerX" secondItem="PCL-in-h24" secondAttribute="centerX" id="qcQ-lF-S1g"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Alarm" id="O1n-cf-WDk"/>
+                    <connections>
+                        <outlet property="commitmentLabel" destination="CTQ-ex-EU0" id="8ZM-TA-rrm"/>
+                        <outlet property="timePicker" destination="PCL-in-h24" id="fu4-dR-dcg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eh9-MB-PbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
