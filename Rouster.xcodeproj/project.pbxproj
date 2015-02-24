@@ -10,6 +10,7 @@
 		4075C80D1A9BF227007EA5B3 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4075C80C1A9BF227007EA5B3 /* AlarmViewController.m */; };
 		4075C8131A9BF3FE007EA5B3 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4075C8121A9BF3FE007EA5B3 /* InstructionsViewController.m */; };
 		4075C8161A9BF61E007EA5B3 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4075C8151A9BF61E007EA5B3 /* DashboardViewController.m */; };
+		4075C8181A9C38FC007EA5B3 /* Alien_Siren-KevanGC-610357990.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4075C8171A9C38FC007EA5B3 /* Alien_Siren-KevanGC-610357990.mp3 */; };
 		40A40C681A97A52000D4F834 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C671A97A52000D4F834 /* main.m */; };
 		40A40C6B1A97A52000D4F834 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C6A1A97A52000D4F834 /* AppDelegate.m */; };
 		40A40C6E1A97A52000D4F834 /* Rouster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C6C1A97A52000D4F834 /* Rouster.xcdatamodeld */; };
@@ -38,6 +39,7 @@
 		4075C8121A9BF3FE007EA5B3 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsViewController.m; sourceTree = "<group>"; };
 		4075C8141A9BF61E007EA5B3 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		4075C8151A9BF61E007EA5B3 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
+		4075C8171A9C38FC007EA5B3 /* Alien_Siren-KevanGC-610357990.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Alien_Siren-KevanGC-610357990.mp3"; sourceTree = "<group>"; };
 		40A40C621A97A52000D4F834 /* Rouster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rouster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A40C661A97A52000D4F834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40A40C671A97A52000D4F834 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		40A40C651A97A52000D4F834 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4075C8171A9C38FC007EA5B3 /* Alien_Siren-KevanGC-610357990.mp3 */,
 				40A40C901A97B9EB00D4F834 /* .gitignore */,
 				40A40C661A97A52000D4F834 /* Info.plist */,
 				40A40C671A97A52000D4F834 /* main.m */,
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40A40C911A97B9EB00D4F834 /* .gitignore in Resources */,
+				4075C8181A9C38FC007EA5B3 /* Alien_Siren-KevanGC-610357990.mp3 in Resources */,
 				40A40C741A97A52000D4F834 /* Main.storyboard in Resources */,
 				488B6F531A99953B004BDF1E /* Tasks in Resources */,
 				40A40C791A97A52000D4F834 /* LaunchScreen.xib in Resources */,

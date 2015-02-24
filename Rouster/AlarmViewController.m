@@ -52,6 +52,15 @@
 }//commitTime
 
 
+-(void)fireAlarm:(NSDate*)fireTime {
+  
+  NSDate *currentTime = [NSDate date];
+  
+  while (currentTime != fireTime) {
+    
+    
+  }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
