@@ -9,7 +9,6 @@
 #import "AlarmViewController.h"
 #import "PedometerController.h"
 #import "SoundController.h"
-#import "TimeKeeper.h"
 
 @interface AlarmViewController () 
 
@@ -50,7 +49,6 @@
 
   self.timePicker.date = [NSDate date];
   }//if else
-  
 }//viewDidLoad
 
 
