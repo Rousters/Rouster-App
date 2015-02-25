@@ -7,36 +7,37 @@
 //
 
 #import "PedometerController.h"
-#import <CoreMotion/CoreMotion.h>
+@import CoreMotion;
 
 
 @interface PedometerController ()
-
-@property (assign) NSInteger stepsToday;
 
 @end
 
 @implementation PedometerController
 
-CMStepCounter *_stepCounter;
+CMPedometer *_stepCounter;
 NSInteger _stepsToday;
 NSInteger _stepsAtBeginOfLiveCounting;
 BOOL _isLiveCounting;
 NSOperationQueue *_stepQueue;
 
-- (instancetype)init
+- (instancetype)initWithDateRangeStartingFrom:(NSDate *)startDate to:(NSDate *)endDate isToday:(BOOL)today
 {
     self = [super init];
     
     if (self)
     {
-        _stepCounter = [[CMStepCounter alloc] init];
-        self.stepsToday = -1;
+        _stepCounter = [[CMPedometer alloc] init];
+        _startDate = startDate;
+        _endDate = endDate;
+        _isToday = today;
+        //self.stepsToday = -1;
         
         NSNotificationCenter *noteCenter = [NSNotificationCenter defaultCenter];
         
         // subscribe to relevant notifications
-        [noteCenter addObserver:self selector:@selector(timeChangedSignificantly:) name:UIApplicationSignificantTimeChangeNotification object:nil];
+//        [noteCenter addObserver:self selector:@selector(timeChangedSignificantly:) name:UIApplicationSignificantTimeChangeNotification object:nil];
         [noteCenter addObserver:self selector:@selector(willEnterForeground:)
                            name:UIApplicationWillEnterForegroundNotification
                          object:nil];
@@ -69,43 +70,59 @@ NSOperationQueue *_stepQueue;
     {
         NSLog(@"Step counting not available on this device");
         
-        self.stepsToday = -1;
+        //self.stepsToday = -1 as NSNumber;
         return;
     }
     
     NSDate *now = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDate *threeHoursFromNow;
+    threeHoursFromNow = [calendar dateByAddingUnit:NSCalendarUnitHour
+                                             value:3
+                                            toDate:[NSDate date]
+                                           options:kNilOptions];
+  
+   
+   [ _stepCounter queryPedometerDataFromDate:now toDate:threeHoursFromNow withHandler:^(CMPedometerData *pedometerData, NSError *error) {
+       
+       if (error) {
+           NSLog(@"Errors have occured");
+       }
+       else {
+           NSNumber *myNum = [NSNumber numberWithInteger:self.stepsToday];
+           myNum = pedometerData.numberOfSteps;
+           
+           if (startLiveCounting) {
+               [self _startLiveCounting];
+           }
+           
+       }
+   }];
     
-    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
-    NSDateComponents *components = [calendar components:NSYearCalendarUnit
-                                    | NSMonthCalendarUnit
-                                    | NSDayCalendarUnit
-                                               fromDate:now];
     
-    NSDate *beginOfDay = [calendar dateFromComponents:components];
+//    NSDate *beginOfDay = [calendar dateFromComponents:components];
     //NSdate *beginOfWakeUp =
     
-    
-    [_stepCounter queryStepCountStartingFrom:beginOfDay
-                                          to:now
-                                     toQueue:_stepQueue
-                                 withHandler:^(NSInteger numberOfSteps, NSError *error) {
-                                     
-                                     if (error)
-                                     {
-                                         // note: CMErrorDomain, code 105 means not authorized
-                                         NSLog(@"%@", [error localizedDescription]);
-                                         self.stepsToday = -1;
-                                     }
-                                     else
-                                     {
-                                         self.stepsToday = numberOfSteps;
-                                         
-                                         if (startLiveCounting)
-                                         {
-                                             [self _startLiveCounting];
-                                         }
-                                     }
-                                 }];
+//    [_stepCounter queryPedometerDataFromDate:beginOfDay
+//                                          to:now
+//                                 withHandler:^(NSInteger numberOfSteps, NSError *error) {
+//                                     
+//                                     if (error)
+//                                     {
+//                                         // note: CMErrorDomain, code 105 means not authorized
+//                                         NSLog(@"%@", [error localizedDescription]);
+//                                         self.stepsToday = -1;
+//                                     }
+//                                     else
+//                                     {
+//                                         self.stepsToday = numberOfSteps;
+//                                         
+//                                         if (startLiveCounting)
+//                                         {
+//                                             [self _startLiveCounting];
+//                                         }
+//                                     }
+//                                 }];
 }
 
 - (void)_startLiveCounting
@@ -114,16 +131,24 @@ NSOperationQueue *_stepQueue;
     {
         return;
     }
-    
     _isLiveCounting = YES;
     //_stepsAtBeginOfLiveCounting = self.stepsToday;
     _stepsAtBeginOfLiveCounting = 0;
-    [_stepCounter startStepCountingUpdatesToQueue:_stepQueue
-                                         updateOn:1
-                                      withHandler:^(NSInteger numberOfSteps, NSDate *timestamp, NSError *error) {
-                                          self.stepsToday = _stepsAtBeginOfLiveCounting
-                                          + numberOfSteps;
-                                      }];
+//    [_stepCounter startStepCountingUpdatesToQueue:_stepQueue
+//                                         updateOn:1
+//                                      withHandler:^(NSInteger numberOfSteps, NSDate *timestamp, NSError *error) {
+//                                          self.stepsToday = _stepsAtBeginOfLiveCounting
+//                                          + numberOfSteps;
+//                                      }];
+    
+    NSDate *now = [NSDate date];
+    
+    [_stepCounter startPedometerUpdatesFromDate:now withHandler:^(CMPedometerData *pedometerData, NSError *error) {
+        
+        NSInteger pedometerNumberSteps = [pedometerData.numberOfSteps integerValue];
+
+        self.stepsToday = _stepsAtBeginOfLiveCounting + pedometerNumberSteps;
+    }];
     
     NSLog(@"Started live step counting");
 }
@@ -135,8 +160,8 @@ NSOperationQueue *_stepQueue;
         return;
     }
     
-    [_stepCounter stopStepCountingUpdates];
-    _isLiveCounting = NO;
+//    [_stepCounter stopStepCountingUpdates];
+//    _isLiveCounting = NO;
     
     NSLog(@"Stopped live step counting");
 }

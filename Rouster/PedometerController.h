@@ -11,6 +11,9 @@
 
 @interface PedometerController : NSObject
 
-@property (readonly) NSInteger stepsToday;
+@property (readonly, nonatomic) NSDate *startDate;
+@property (readonly, nonatomic) NSDate *endDate;
+@property (readonly, nonatomic) BOOL isToday;
+@property (nonatomic) NSInteger stepsToday;
 
 @end
