@@ -13,12 +13,12 @@
 
 @interface AlarmViewController () 
 
-@property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
-@property (weak, nonatomic) IBOutlet UILabel *commitmentLabel;
-@property (weak, nonatomic) NSDate *alarmTime;
-@property (weak, nonatomic) NSTimer *checkTime;
-@property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
-@property (strong, nonatomic) SoundController* soundController;
+@property (weak, nonatomic  ) IBOutlet UIDatePicker    *timePicker;
+@property (weak, nonatomic  ) IBOutlet UILabel         *commitmentLabel;
+@property (weak, nonatomic  ) IBOutlet UILabel         *stepsLabel;
+@property (strong, nonatomic) SoundController * soundController;
+@property (weak, nonatomic  ) NSDate          * alarmTime;
+@property (weak, nonatomic  ) NSTimer         * checkTime;
 
 @end
 
@@ -43,11 +43,11 @@
   self.alarmTime = [[NSUserDefaults standardUserDefaults]
                           objectForKey:@"alarmTime"];
   if (self.alarmTime != nil) {
-    
-  self.timePicker.date =  self.alarmTime;
+
+  self.timePicker.date = self.alarmTime;
   } else {
-    
-    self.timePicker.date = [NSDate date];
+
+  self.timePicker.date = [NSDate date];
   }//if else
   
 }//viewDidLoad
@@ -59,12 +59,12 @@
   
   //Format selected time to display to user  and set label text to it.
   NSDateFormatter *timeFormat = [[NSDateFormatter alloc]init];
-  timeFormat.timeZone = [NSTimeZone defaultTimeZone];
-  timeFormat.timeStyle = NSDateFormatterShortStyle;
-  NSString *time = [timeFormat stringFromDate:self.timePicker.date];
-  NSString *committed = @"Committed to: ";
-  NSString *timeCommit = [committed stringByAppendingString:time];
-  self.commitmentLabel.text = timeCommit;
+  timeFormat.timeZone         = [NSTimeZone defaultTimeZone];
+  timeFormat.timeStyle        = NSDateFormatterShortStyle;
+  NSString *time              = [timeFormat stringFromDate:self.timePicker.date];
+  NSString *committed         = @"Committed to: ";
+  NSString *timeCommit        = [committed stringByAppendingString:time];
+  self.commitmentLabel.text   = timeCommit;
   //Clear last allarm
   [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"alarmTime"];
   self.alarmTime = nil;
