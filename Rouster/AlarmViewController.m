@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 @property (weak, nonatomic) IBOutlet UILabel *commitmentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
+@property (nonatomic) NSInteger stepsToday;
 
 @end
 
