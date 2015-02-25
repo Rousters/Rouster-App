@@ -31,6 +31,7 @@
     [super viewDidLoad];
   
   self.soundController = [[SoundController alloc]init];
+  [UIApplication sharedApplication].idleTimerDisabled = YES;
     _stepModel = [[PedometerController alloc] init];
     
     [_stepModel addObserver:self forKeyPath:@"stepsToday" options:NSKeyValueObservingOptionNew context:NULL];
