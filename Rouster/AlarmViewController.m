@@ -9,7 +9,6 @@
 #import "AlarmViewController.h"
 #import "PedometerController.h"
 #import "SoundController.h"
-#import "TimeKeeper.h"
 
 @interface AlarmViewController () 
 
@@ -31,7 +30,7 @@
     [super viewDidLoad];
   
   self.soundController = [[SoundController alloc]init];
-  [UIApplication sharedApplication].idleTimerDisabled = YES;
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
     _stepModel = [[PedometerController alloc] init];
     
     [_stepModel addObserver:self forKeyPath:@"stepsToday" options:NSKeyValueObservingOptionNew context:NULL];
@@ -40,16 +39,15 @@
     
     // Do any additional setup after loading the view.
   //Set time pickers default time position to the last selected time or the current time.
-  self.alarmTime = [[NSUserDefaults standardUserDefaults]
-                          objectForKey:@"alarmTime"];
-  if (self.alarmTime != nil) {
+  self.lastAlarm = [[NSUserDefaults standardUserDefaults]
+                          objectForKey:@"lastAlarm"];
+  if (self.lastAlarm != nil) {
 
-  self.timePicker.date = self.alarmTime;
+  self.timePicker.date = self.lastAlarm;
   } else {
 
   self.timePicker.date = [NSDate date];
   }//if else
-  
 }//viewDidLoad
 
 
@@ -66,18 +64,15 @@
   NSString *timeCommit        = [committed stringByAppendingString:time];
   self.commitmentLabel.text   = timeCommit;
   //Clear last allarm
-  [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"alarmTime"];
-  self.alarmTime = nil;
+  //[[NSUserDefaults standardUserDefaults]removeObjectForKey:@"lastAlarm"];
   //Save selected time.
-  if (self.alarmTime == nil) {
-  
-  [[NSUserDefaults standardUserDefaults] setObject:self.timePicker.date forKey:@"alarmTime"];
+  [[NSUserDefaults standardUserDefaults] setObject:self.timePicker.date forKey:@"lastAlarm"];
   [[NSUserDefaults standardUserDefaults] synchronize];
-  self.alarmTime = [[NSUserDefaults standardUserDefaults]
-                    objectForKey:@"alarmTime"];
+  self.lastAlarm = [[NSUserDefaults standardUserDefaults]objectForKey:@"alarmTime"];
+  self.alarmTime = self.timePicker.date;
   self.checkTime = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(triggerAlarm:) userInfo:nil repeats:true];
   NSLog(@"%@", self.alarmTime);
-  }
+  
 }//commitTime
 
 
@@ -85,13 +80,26 @@
 //Check for match every 60 seconds. Fire alarm when match exists.
 -(void) triggerAlarm:(NSTimer *)timeCheck {
   
-  NSDate *currentTime = [NSDate date];
+  UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Roust!"
+                                                                 message:@"Welcome to your future. Walk away from bed to confirm alarm. We are watching so don't go back to bed"
+                                                          preferredStyle:UIAlertControllerStyleAlert];
+  
+  UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction * action) {
+                                                   
+                                                   [self.soundController stopSound];
+                                                   [self.checkTime invalidate];
+                                                   [timeCheck invalidate];
+                                                 }];
+  [alert addAction:confirm];
+  
   NSLog(@"Checking time");
-  if (currentTime >= self.alarmTime) {
+  if ([NSDate date] >= self.alarmTime) {
     
     [self.soundController playSound];
     NSLog(@"WAKE UP!!!!!!!");
-  }
+    [self presentViewController:alert animated:YES completion:nil];
+  } 
 }
 
 

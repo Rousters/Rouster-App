@@ -32,7 +32,7 @@
   return self;
 }
 
-#pragma mark - Configure Audio
+#pragma mark - Config
 - (void)configureAudioSession {
   
   self.audioSession = [AVAudioSession sharedInstance];
@@ -54,10 +54,9 @@
 }
 
 
-#pragma mark - Delegate Methods
+#pragma mark - Methods
 -(void)playSound {
   [self.audioPlayer play];
-  //[self.audioSession setActive:YES error:nil];
 }//play sound
 
 -(void)stopSound {

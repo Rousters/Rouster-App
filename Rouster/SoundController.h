@@ -12,5 +12,5 @@
 
 - (instancetype)init;
 - (void)playSound;
-
+- (void)stopSound;
 @end
