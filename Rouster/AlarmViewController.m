@@ -9,6 +9,7 @@
 #import "AlarmViewController.h"
 #import "PedometerController.h"
 #import "SoundController.h"
+#import "TimeKeeper.h"
 
 @interface AlarmViewController () 
 
@@ -30,6 +31,7 @@
     [super viewDidLoad];
   
   self.soundController = [[SoundController alloc]init];
+  [UIApplication sharedApplication].idleTimerDisabled = YES;
     _stepModel = [[PedometerController alloc] init];
     
     [_stepModel addObserver:self forKeyPath:@"stepsToday" options:NSKeyValueObservingOptionNew context:NULL];
@@ -41,11 +43,11 @@
   self.alarmTime = [[NSUserDefaults standardUserDefaults]
                           objectForKey:@"alarmTime"];
   if (self.alarmTime != nil) {
-    
-  self.timePicker.date =  self.alarmTime;
+
+  self.timePicker.date = self.alarmTime;
   } else {
-    
-    self.timePicker.date = [NSDate date];
+
+  self.timePicker.date = [NSDate date];
   }//if else
   
 }//viewDidLoad
@@ -57,23 +59,25 @@
   
   //Format selected time to display to user  and set label text to it.
   NSDateFormatter *timeFormat = [[NSDateFormatter alloc]init];
-  timeFormat.timeZone = [NSTimeZone defaultTimeZone];
-  timeFormat.timeStyle = NSDateFormatterShortStyle;
-  NSString *time = [timeFormat stringFromDate:self.timePicker.date];
-  NSString *committed = @"Committed to: ";
-  NSString *timeCommit = [committed stringByAppendingString:time];
-  self.commitmentLabel.text = timeCommit;
+  timeFormat.timeZone         = [NSTimeZone defaultTimeZone];
+  timeFormat.timeStyle        = NSDateFormatterShortStyle;
+  NSString *time              = [timeFormat stringFromDate:self.timePicker.date];
+  NSString *committed         = @"Committed to: ";
+  NSString *timeCommit        = [committed stringByAppendingString:time];
+  self.commitmentLabel.text   = timeCommit;
+  //Clear last allarm
+  [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"alarmTime"];
+  self.alarmTime = nil;
   //Save selected time.
-  self.alarmTime = [[NSUserDefaults standardUserDefaults]
-                    objectForKey:@"alarmTime"];
+  if (self.alarmTime == nil) {
+  
   [[NSUserDefaults standardUserDefaults] setObject:self.timePicker.date forKey:@"alarmTime"];
   [[NSUserDefaults standardUserDefaults] synchronize];
-  
+  self.alarmTime = [[NSUserDefaults standardUserDefaults]
+                    objectForKey:@"alarmTime"];
   self.checkTime = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(triggerAlarm:) userInfo:nil repeats:true];
   NSLog(@"%@", self.alarmTime);
-  
-  //Test audio player:
-  
+  }
 }//commitTime
 
 
@@ -82,8 +86,7 @@
 -(void) triggerAlarm:(NSTimer *)timeCheck {
   
   NSDate *currentTime = [NSDate date];
-  NSLog(@"checking for time");
-
+  NSLog(@"Checking time");
   if (currentTime >= self.alarmTime) {
     
     [self.soundController playSound];
