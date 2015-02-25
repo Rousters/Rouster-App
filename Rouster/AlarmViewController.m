@@ -9,15 +9,19 @@
 #import "AlarmViewController.h"
 #import "PedometerController.h"
 #import "SoundController.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface AlarmViewController () 
 
-@property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
-@property (weak, nonatomic) IBOutlet UILabel *commitmentLabel;
-@property (weak, nonatomic) NSDate *alarmTime;
-@property (weak, nonatomic) NSTimer *checkTime;
-@property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
-@property (nonatomic) NSInteger stepsToday;
+@interface AlarmViewController () <CLLocationManagerDelegate>
+
+@property (weak, nonatomic  ) IBOutlet UIDatePicker    *timePicker;
+@property (weak, nonatomic  ) IBOutlet UILabel         *commitmentLabel;
+@property (weak, nonatomic  ) IBOutlet UILabel         *stepsLabel;
+@property (strong, nonatomic) SoundController * soundController;
+@property (weak, nonatomic  ) NSDate          * alarmTime;
+@property (weak, nonatomic)   NSDate          * lastAlarm;
+@property (weak, nonatomic  ) NSTimer         * checkTime;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
@@ -28,6 +32,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //MARK: Location Manager in ViewDidLoad
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
+    [self.locationManager startUpdatingLocation];
+    
+    if ([CLLocationManager locationServicesEnabled]) {
+        
+        NSLog(@"current status is %d", [CLLocationManager authorizationStatus]);
+        
+        if ([CLLocationManager authorizationStatus] == 0) {
+            NSLog(@"prompt should show");
+            [self.locationManager requestAlwaysAuthorization];
+            
+        } else {
+            //[self.locationManager startUpdatingLocation];
+            [self.locationManager startMonitoringSignificantLocationChanges];
+        }
+    } else {
+        //warn the user that location services are not currently enabled
+    }
   
   self.soundController = [[SoundController alloc]init];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
@@ -49,6 +77,22 @@
   self.timePicker.date = [NSDate date];
   }//if else
 }//viewDidLoad
+
+//MARK: Location Manager Methods
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    
+    NSLog(@" the new status is %d", status);
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    CLLocation *location = locations.firstObject;
+    NSLog(@"latitide: %f and longitude: %f",location.coordinate.latitude, location.coordinate.longitude);
+}
+
+- (NSString *)deviceLocation {
+    return [NSString stringWithFormat:@"latitude: %f longitude: %f", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude];
+}
 
 
 
@@ -72,6 +116,10 @@
   self.alarmTime = self.timePicker.date;
   self.checkTime = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(triggerAlarm:) userInfo:nil repeats:true];
   NSLog(@"%@", self.alarmTime);
+    
+    NSString *location =  [self deviceLocation];
+    NSLog(@"This is me bubas");
+    NSLog(@"%@", location);
   
 }//commitTime
 
