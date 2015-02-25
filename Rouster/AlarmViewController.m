@@ -8,6 +8,7 @@
 
 #import "AlarmViewController.h"
 #import "PedometerController.h"
+#import "SoundController.h"
 
 @interface AlarmViewController () 
 
@@ -15,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *commitmentLabel;
 @property (weak, nonatomic) NSDate *alarmTime;
 @property (weak, nonatomic) NSTimer *checkTime;
+@property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
+@property (strong, nonatomic) SoundController* soundController;
+
 @end
 
 @implementation AlarmViewController
@@ -24,7 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+  
+  self.soundController = [[SoundController alloc]init];
     _stepModel = [[PedometerController alloc] init];
     
     [_stepModel addObserver:self forKeyPath:@"stepsToday" options:NSKeyValueObservingOptionNew context:NULL];
@@ -42,7 +47,6 @@
     
     self.timePicker.date = [NSDate date];
   }//if else
-  
   
 }//viewDidLoad
 
@@ -67,6 +71,9 @@
   
   self.checkTime = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(triggerAlarm:) userInfo:nil repeats:true];
   NSLog(@"%@", self.alarmTime);
+  
+  //Test audio player:
+  
 }//commitTime
 
 
@@ -79,6 +86,7 @@
 
   if (currentTime >= self.alarmTime) {
     
+    [self.soundController playSound];
     NSLog(@"WAKE UP!!!!!!!");
   }
 }
