@@ -9,6 +9,7 @@
 #import "AlarmViewController.h"
 #import "PedometerController.h"
 #import "SoundController.h"
+#import "TimeKeeper.h"
 
 @interface AlarmViewController () 
 
@@ -63,17 +64,19 @@
   NSString *committed = @"Committed to: ";
   NSString *timeCommit = [committed stringByAppendingString:time];
   self.commitmentLabel.text = timeCommit;
+  //Clear last allarm
+  [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"alarmTime"];
+  self.alarmTime = nil;
   //Save selected time.
-  self.alarmTime = [[NSUserDefaults standardUserDefaults]
-                    objectForKey:@"alarmTime"];
+  if (self.alarmTime == nil) {
+  
   [[NSUserDefaults standardUserDefaults] setObject:self.timePicker.date forKey:@"alarmTime"];
   [[NSUserDefaults standardUserDefaults] synchronize];
-  
+  self.alarmTime = [[NSUserDefaults standardUserDefaults]
+                    objectForKey:@"alarmTime"];
   self.checkTime = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(triggerAlarm:) userInfo:nil repeats:true];
   NSLog(@"%@", self.alarmTime);
-  
-  //Test audio player:
-  
+  }
 }//commitTime
 
 
@@ -82,8 +85,7 @@
 -(void) triggerAlarm:(NSTimer *)timeCheck {
   
   NSDate *currentTime = [NSDate date];
-  NSLog(@"checking for time");
-
+  NSLog(@"Checking time");
   if (currentTime >= self.alarmTime) {
     
     [self.soundController playSound];
