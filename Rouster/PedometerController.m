@@ -12,8 +12,6 @@
 
 @interface PedometerController ()
 
-@property (assign) NSInteger stepsToday;
-
 @end
 
 @implementation PedometerController
