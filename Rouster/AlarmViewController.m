@@ -8,12 +8,16 @@
 
 #import "AlarmViewController.h"
 #import "PedometerController.h"
+#import "SoundController.h"
 
-@interface AlarmViewController ()
+@interface AlarmViewController () 
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 @property (weak, nonatomic) IBOutlet UILabel *commitmentLabel;
+@property (weak, nonatomic) NSDate *alarmTime;
+@property (weak, nonatomic) NSTimer *checkTime;
 @property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
+@property (strong, nonatomic) SoundController* soundController;
 
 @end
 
@@ -24,7 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+  
+  self.soundController = [[SoundController alloc]init];
     _stepModel = [[PedometerController alloc] init];
     
     [_stepModel addObserver:self forKeyPath:@"stepsToday" options:NSKeyValueObservingOptionNew context:NULL];
@@ -33,15 +38,16 @@
     
     // Do any additional setup after loading the view.
   //Set time pickers default time position to the last selected time or the current time.
-  NSDate *lastAlarm = [[NSUserDefaults standardUserDefaults]
+  self.alarmTime = [[NSUserDefaults standardUserDefaults]
                           objectForKey:@"alarmTime"];
-  if (lastAlarm != nil) {
+  if (self.alarmTime != nil) {
     
-  self.timePicker.date =  lastAlarm;
+  self.timePicker.date =  self.alarmTime;
   } else {
     
     self.timePicker.date = [NSDate date];
   }//if else
+  
 }//viewDidLoad
 
 
@@ -58,11 +64,32 @@
   NSString *timeCommit = [committed stringByAppendingString:time];
   self.commitmentLabel.text = timeCommit;
   //Save selected time.
+  self.alarmTime = [[NSUserDefaults standardUserDefaults]
+                    objectForKey:@"alarmTime"];
   [[NSUserDefaults standardUserDefaults] setObject:self.timePicker.date forKey:@"alarmTime"];
   [[NSUserDefaults standardUserDefaults] synchronize];
   
+  self.checkTime = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(triggerAlarm:) userInfo:nil repeats:true];
+  NSLog(@"%@", self.alarmTime);
+  
+  //Test audio player:
+  
 }//commitTime
 
+
+#pragma mark - Trigger Alarm
+//Check for match every 60 seconds. Fire alarm when match exists.
+-(void) triggerAlarm:(NSTimer *)timeCheck {
+  
+  NSDate *currentTime = [NSDate date];
+  NSLog(@"checking for time");
+
+  if (currentTime >= self.alarmTime) {
+    
+    [self.soundController playSound];
+    NSLog(@"WAKE UP!!!!!!!");
+  }
+}
 
 
 - (void)didReceiveMemoryWarning {
