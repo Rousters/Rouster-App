@@ -102,33 +102,40 @@
 }//commitTime
 
 -(void) checkSteps:(NSTimer *)stepsCheck {
-    [self.soundController playSound];
+  
     
-    if (self.globalSteps >= 30) {
+    if (self.globalSteps >= 15) {
+      
+      
+      
+      self.globalSteps = 0;
+      self.stepsLabel.text = [NSString stringWithFormat:@"%ld",
+                              (long)self.globalSteps];
       [self.checkSteps invalidate];
-        NSLog(@"I have moved over 30 steps");
+      [stepsCheck invalidate];
+        NSLog(@"I have moved over 15 steps");
       [self.soundController stopSound];
       
       
         UIAlertController* alertSteps = [UIAlertController alertControllerWithTitle:@"Roust!"
-                                                                       message:@"Congratulations you have moved over 30 steps.  Enjoy your day"
+                                                                       message:@"Congratulations you have moved over 15 steps.  Enjoy your day"
                                                                      preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"Good Bye" style:UIAlertActionStyleDefault
                                                         handler:^(UIAlertAction * action) {
                                                             
                                                             //[self.soundController stopSound];
-                                                    
                                                           
                                                           NSDate *dateToConvertForDB = [NSDate date];
                                                           NSString *dateForDB = [NSString stringWithFormat:@"%.0f", [dateToConvertForDB timeIntervalSince1970]];
                                                           [[NetworkController sharedService]alarmConfirmed:dateForDB];
+                                                          [self dismissViewControllerAnimated:alertSteps completion:nil];
                                                         }];
         
         [alertSteps addAction:confirm];
       
         [self presentViewController:alertSteps animated:YES completion:nil];
-      self.globalSteps = 0;
+      
       
      
       
@@ -151,7 +158,7 @@
   UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault
                                                  handler:^(UIAlertAction * action) {
                                                    
-                                                   
+                                                   [self dismissViewControllerAnimated:alert completion:nil];
                                                  }];
 
     [alert addAction:confirm];
@@ -162,15 +169,16 @@
   NSLog(@"Checking time");
   if ([NSDate date] >= self.alarmTime) {
     [self.checkTime invalidate];
+    [timeCheck invalidate];
     //[self.soundController playSound];
     NSLog(@"WAKE UP!!!!!!!");
     [self presentViewController:alert animated:YES completion:nil];
       
-      self.checkSteps = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkSteps:) userInfo:nil repeats:true];
+      self.checkSteps = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkSteps:) userInfo:nil repeats:true];
+      [self.soundController playSound];
       
-      
-  } 
-}
+  }//if time
+}//trigger alarm
 
 
 - (void)didReceiveMemoryWarning {
@@ -224,8 +232,6 @@
 {
     [self _updateSteps:_stepModel.stepsToday];
 }
-
-
 
 
 @end

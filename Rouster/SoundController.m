@@ -4,7 +4,7 @@
 //
 //  Created by Eric Mentele on 2/24/15.
 //  Copyright (c) 2015 Eric Mentele. All rights reserved.
-//Inspired by http://www.raywenderlich.com/69369/audio-tutorial-ios-playing-audio-programatically-2014-edition
+//Inspired in part by http://www.raywenderlich.com/69369/audio-tutorial-ios-playing-audio-programatically-2014-edition
 
 #import "SoundController.h"
 @import AVFoundation;
@@ -57,10 +57,12 @@
 #pragma mark - Methods
 -(void)playSound {
   [self.audioPlayer play];
+  self.audioPlayer.numberOfLoops = -1;
 }//play sound
 
 -(void)stopSound {
   [self.audioPlayer stop];
+  [self.audioPlayer setCurrentTime:0];
     NSLog(@"I have stopped sound");
   //[self.audioSession setActive:NO error:nil];
 }
