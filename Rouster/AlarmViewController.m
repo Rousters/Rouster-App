@@ -111,21 +111,22 @@
         NSLog(@"I have moved over 30 steps");
         [self.soundController stopSound];
         [self.checkTime invalidate];
+        
+        UIAlertController* alertSteps = [UIAlertController alertControllerWithTitle:@"Roust!"
+                                                                       message:@"Congratulations you have moved over 30 steps.  Enjoy your day"
+                                                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"Good Bye" style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction * action) {
+                                                            
+                                                            //[self.soundController stopSound];
+                                                            [self.checkSteps invalidate];
+                                                            
+                                                        }];
+        
+        [alertSteps addAction:confirm];
         [self.checkSteps invalidate];
-      
-//        UIAlertController* alertSteps = [UIAlertController alertControllerWithTitle:@"Roust!"
-//                                                                       message:@"Congratulations you have moved over 30 steps.  Enjoy your day"
-//                                                                     preferredStyle:UIAlertControllerStyleAlert];
-//        
-//        UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault
-//                                                        handler:^(UIAlertAction * action) {
-//                                                            
-//                                                            //[self.soundController stopSound];
-//                                                            [self.checkTime invalidate];
-//                                                            
-//                                                        }];
-//        
-//        [alertSteps addAction:confirm];
+
     }
  
 }
@@ -145,9 +146,6 @@
   UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault
                                                  handler:^(UIAlertAction * action) {
                                                      
-//                                                   [self.soundController stopSound];
-//                                                   [self.checkTime invalidate];
-                                                   //[timeCheck invalidate];
                                                  }];
 
     [alert addAction:confirm];
