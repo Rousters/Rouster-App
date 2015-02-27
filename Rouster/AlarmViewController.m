@@ -9,7 +9,7 @@
 #import "AlarmViewController.h"
 #import "PedometerController.h"
 #import "SoundController.h"
-
+#import "NetworkController.h"
 @interface AlarmViewController () 
 
 @property (weak, nonatomic  ) IBOutlet UIDatePicker    *timePicker;
@@ -29,6 +29,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
+  [[NetworkController sharedService]createUser:^(NSString *token, NSString *error) {
+    
+  
+    //[[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+    //[[NSUserDefaults standardUserDefaults] synchronize];
+    NSLog(@"%@",token);
+  }];
   
   self.soundController = [[SoundController alloc]init];
     [UIApplication sharedApplication].idleTimerDisabled = YES;

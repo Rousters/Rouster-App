@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Instructions-->
@@ -19,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.73147533669999998" green="0.80463199460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="INSTRUCTIONS" image="Instructions" selectedImage="Instructions" id="RYu-Vx-Zd6"/>
+                    <tabBarItem key="tabBarItem" title="INSTRUCTIONS" image="Instructions" id="RYu-Vx-Zd6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BpG-UZ-WeI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -38,7 +37,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.73147533669999998" green="0.80463199460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="STATS" image="Dashboard" selectedImage="Dashboard" id="57d-Pm-0b6"/>
+                    <tabBarItem key="tabBarItem" title="STATS" image="Dashboard" id="57d-Pm-0b6"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDr-4d-azc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -58,9 +57,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awu-qY-Xxf">
-                                <rect key="frame" x="273" y="513" width="54" height="30"/>
+                                <rect key="frame" x="273" y="515" width="55" height="28"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="15"/>
                                 <state key="normal" title="Commit">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.02578686466118316" green="0.66280381941111099" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="commitTime:" destination="J74-pY-bu3" eventType="touchUpInside" id="Hsf-iS-z5I"/>
@@ -72,33 +72,25 @@
                                     <!--2015-02-23 22:32:15 +0000-->
                                 </date>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What time will you wake up?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTQ-ex-EU0">
-                                <rect key="frame" x="191" y="106" width="219" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTQ-ex-EU0">
+                                <rect key="frame" x="177" y="106" width="247" height="18"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="What time will you wake up?">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="Copperplate"/>
+                                            <font key="NSOriginalFont" size="17" name="Copperplate"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIX-mf-B46">
-                                <rect key="frame" x="229" y="419" width="145" height="34"/>
-                                <color key="backgroundColor" red="0.9215686917" green="0.98431378599999997" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="145" id="7Sv-EE-1gc"/>
-                                    <constraint firstAttribute="height" constant="34" id="pUv-SU-XaQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.16078431900000001" green="0.8980392814" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.73147533669999998" green="0.80463199460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="eIX-mf-B46" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leading" constant="229" id="0AI-Ll-b48"/>
-                            <constraint firstItem="eIX-mf-B46" firstAttribute="top" secondItem="PCL-in-h24" secondAttribute="bottom" constant="38" id="1Gi-3v-mTo"/>
-                            <constraint firstItem="awu-qY-Xxf" firstAttribute="top" secondItem="eIX-mf-B46" secondAttribute="bottom" constant="60" id="4wB-9j-Yjb"/>
                             <constraint firstItem="awu-qY-Xxf" firstAttribute="centerX" secondItem="PCL-in-h24" secondAttribute="centerX" id="ART-vf-txv"/>
                             <constraint firstItem="CTQ-ex-EU0" firstAttribute="top" secondItem="wCq-e8-AbN" secondAttribute="bottom" constant="86" id="Ecf-Bg-kFU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="eIX-mf-B46" secondAttribute="trailing" constant="210" id="KAm-hk-bBS"/>
                             <constraint firstAttribute="trailing" secondItem="PCL-in-h24" secondAttribute="trailing" id="MRP-Sl-VBH"/>
                             <constraint firstItem="UjX-ot-vew" firstAttribute="top" secondItem="awu-qY-Xxf" secondAttribute="bottom" constant="8" symbolic="YES" id="PGj-Fy-DU4"/>
                             <constraint firstItem="PCL-in-h24" firstAttribute="centerY" secondItem="bID-KU-DyS" secondAttribute="centerY" id="dEe-4D-Rwq"/>
@@ -106,10 +98,9 @@
                             <constraint firstItem="CTQ-ex-EU0" firstAttribute="centerX" secondItem="PCL-in-h24" secondAttribute="centerX" id="qcQ-lF-S1g"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ALARM" image="Alarm" selectedImage="Alarm" id="O1n-cf-WDk"/>
+                    <tabBarItem key="tabBarItem" title="ALARM" image="Alarm" id="O1n-cf-WDk"/>
                     <connections>
                         <outlet property="commitmentLabel" destination="CTQ-ex-EU0" id="8ZM-TA-rrm"/>
-                        <outlet property="stepsLabel" destination="eIX-mf-B46" id="sSh-ve-4wM"/>
                         <outlet property="timePicker" destination="PCL-in-h24" id="fu4-dR-dcg"/>
                     </connections>
                 </viewController>

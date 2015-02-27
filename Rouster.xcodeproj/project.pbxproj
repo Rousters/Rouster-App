@@ -14,6 +14,7 @@
 		4075C81F1A9D3811007EA5B3 /* SoundController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4075C81E1A9D3811007EA5B3 /* SoundController.m */; };
 		4075C8231A9D4261007EA5B3 /* Sounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 4075C8221A9D4261007EA5B3 /* Sounds.m */; };
 		4075C8251A9E70F2007EA5B3 /* readme in Resources */ = {isa = PBXBuildFile; fileRef = 4075C8241A9E70F2007EA5B3 /* readme */; };
+		4075C82C1A9E867B007EA5B3 /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4075C82B1A9E867B007EA5B3 /* NetworkController.m */; };
 		40A40C681A97A52000D4F834 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C671A97A52000D4F834 /* main.m */; };
 		40A40C6B1A97A52000D4F834 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C6A1A97A52000D4F834 /* AppDelegate.m */; };
 		40A40C6E1A97A52000D4F834 /* Rouster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C6C1A97A52000D4F834 /* Rouster.xcdatamodeld */; };
@@ -49,6 +50,8 @@
 		4075C8211A9D4261007EA5B3 /* Sounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sounds.h; sourceTree = "<group>"; };
 		4075C8221A9D4261007EA5B3 /* Sounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sounds.m; sourceTree = "<group>"; };
 		4075C8241A9E70F2007EA5B3 /* readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
+		4075C82A1A9E867B007EA5B3 /* NetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkController.h; sourceTree = "<group>"; };
+		4075C82B1A9E867B007EA5B3 /* NetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkController.m; sourceTree = "<group>"; };
 		40A40C621A97A52000D4F834 /* Rouster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rouster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A40C661A97A52000D4F834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40A40C671A97A52000D4F834 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,15 +102,12 @@
 		4075C80F1A9BF3C4007EA5B3 /* Controller Layer */ = {
 			isa = PBXGroup;
 			children = (
+				4075C8261A9E83EA007EA5B3 /* View Controllers */,
 				4075C8191A9D3742007EA5B3 /* Activity Components */,
 				40A40C691A97A52000D4F834 /* AppDelegate.h */,
 				40A40C6A1A97A52000D4F834 /* AppDelegate.m */,
-				4075C80B1A9BF227007EA5B3 /* AlarmViewController.h */,
-				4075C80C1A9BF227007EA5B3 /* AlarmViewController.m */,
-				4075C8111A9BF3FE007EA5B3 /* InstructionsViewController.h */,
-				4075C8121A9BF3FE007EA5B3 /* InstructionsViewController.m */,
-				4075C8141A9BF61E007EA5B3 /* DashboardViewController.h */,
-				4075C8151A9BF61E007EA5B3 /* DashboardViewController.m */,
+				4075C82A1A9E867B007EA5B3 /* NetworkController.h */,
+				4075C82B1A9E867B007EA5B3 /* NetworkController.m */,
 			);
 			name = "Controller Layer";
 			sourceTree = "<group>";
@@ -139,6 +139,19 @@
 				4075C8171A9C38FC007EA5B3 /* Alien_Siren.mp3 */,
 			);
 			name = Sounds;
+			sourceTree = "<group>";
+		};
+		4075C8261A9E83EA007EA5B3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4075C80B1A9BF227007EA5B3 /* AlarmViewController.h */,
+				4075C80C1A9BF227007EA5B3 /* AlarmViewController.m */,
+				4075C8111A9BF3FE007EA5B3 /* InstructionsViewController.h */,
+				4075C8121A9BF3FE007EA5B3 /* InstructionsViewController.m */,
+				4075C8141A9BF61E007EA5B3 /* DashboardViewController.h */,
+				4075C8151A9BF61E007EA5B3 /* DashboardViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		40A40C591A97A52000D4F834 = {
@@ -316,6 +329,7 @@
 				4075C8231A9D4261007EA5B3 /* Sounds.m in Sources */,
 				4075C8161A9BF61E007EA5B3 /* DashboardViewController.m in Sources */,
 				40A40C6E1A97A52000D4F834 /* Rouster.xcdatamodeld in Sources */,
+				4075C82C1A9E867B007EA5B3 /* NetworkController.m in Sources */,
 				48132FA91A9CFBCE005BEF07 /* PedometerController.m in Sources */,
 				4075C81F1A9D3811007EA5B3 /* SoundController.m in Sources */,
 				40A40C6B1A97A52000D4F834 /* AppDelegate.m in Sources */,
