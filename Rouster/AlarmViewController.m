@@ -10,6 +10,7 @@
 #import "SoundController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "DTStepModelController.h"
+#import "NetworkController.h"
 
 
 @interface AlarmViewController () <CLLocationManagerDelegate>
@@ -47,6 +48,14 @@
     
     
    
+  
+  [[NetworkController sharedService]createUser:^(NSString *token, NSString *error) {
+    
+  
+    //[[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+    //[[NSUserDefaults standardUserDefaults] synchronize];
+    NSLog(@"%@",token);
+  }];
   
   self.soundController = [[SoundController alloc]init];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
