@@ -21,7 +21,9 @@
 @property (weak, nonatomic  ) NSDate          * alarmTime;
 @property (weak, nonatomic)   NSDate          * lastAlarm;
 @property (weak, nonatomic  ) NSTimer         * checkTime;
+@property (weak, nonatomic  ) NSTimer         * checkSteps;
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, assign) NSInteger globalSteps;
 
 - (NSTimeInterval)timeIntervalSince1970;
 @end
@@ -98,30 +100,67 @@
   
 }//commitTime
 
+-(void) checkSteps:(NSTimer *)stepsCheck {
+    [self.soundController playSound];
+    
+    if (self.globalSteps >= 30) {
+        NSLog(@"I have moved over 30 steps");
+        [self.soundController stopSound];
+        [self.checkTime invalidate];
+        
+        UIAlertController* alertSteps = [UIAlertController alertControllerWithTitle:@"Roust!"
+                                                                       message:@"Congratulations you have moved over 30 steps.  Enjoy your day"
+                                                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"Good Bye" style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction * action) {
+                                                            
+                                                            //[self.soundController stopSound];
+                                                    [self.checkSteps invalidate];
+                                                            
+                                                        }];
+        
+        [alertSteps addAction:confirm];
+        [self presentViewController:alertSteps animated:YES completion:nil];
+        //[self.checkSteps invalidate];
+
+    }
+ 
+}
 
 #pragma mark - Trigger Alarm
 //Check for match every 60 seconds. Fire alarm when match exists.
 -(void) triggerAlarm:(NSTimer *)timeCheck {
+    
+    
   
   UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Roust!"
-                                                                 message:@"Welcome to your future. Walk away from bed to confirm alarm. We are watching so don't go back to bed"
+                                                                 message:@"Welcome to your future. Walk away 30 steps from your location to confirm alarm. We are watching so don't go back to bed"
                                                           preferredStyle:UIAlertControllerStyleAlert];
+    
+ 
   
   UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault
                                                  handler:^(UIAlertAction * action) {
-                                                   
-                                                   [self.soundController stopSound];
-                                                   [self.checkTime invalidate];
-                                                   [timeCheck invalidate];
+                                                     [self.checkTime invalidate];
+                                                     
                                                  }];
-  [alert addAction:confirm];
+
+    [alert addAction:confirm];
+    
+    
+    
   
   NSLog(@"Checking time");
   if ([NSDate date] >= self.alarmTime) {
     
-    [self.soundController playSound];
+    //[self.soundController playSound];
     NSLog(@"WAKE UP!!!!!!!");
     [self presentViewController:alert animated:YES completion:nil];
+      
+      self.checkSteps = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkSteps:) userInfo:nil repeats:true];
+      
+      
   } 
 }
 
@@ -150,12 +189,14 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         if (steps>=0)
         {
+            self.globalSteps = steps;
             self.stepsLabel.text = [NSString stringWithFormat:@"%ld",
-                                    (long)steps];
+                                    (long)self.globalSteps];
             self.stepsLabel.textColor = [UIColor colorWithRed:0
                                                         green:0.8
                                                          blue:0
                                                         alpha:1];
+            
         }
         else
         {
@@ -165,7 +206,6 @@
     });
 
 }
-
 
 #pragma mark - Notifications
 

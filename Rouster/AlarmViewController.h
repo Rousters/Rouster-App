@@ -11,4 +11,5 @@
 @interface AlarmViewController : UIViewController
 
 -(void) triggerAlarm:(NSTimer*)timeCheck;
+-(void) checkSteps:(NSTimer *)stepsCheck;
 @end

@@ -61,6 +61,7 @@
 
 -(void)stopSound {
   [self.audioPlayer stop];
+    NSLog(@"I have stopped sound");
   //[self.audioSession setActive:NO error:nil];
 }
 @end
