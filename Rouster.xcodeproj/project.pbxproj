@@ -263,7 +263,7 @@
 				TargetAttributes = {
 					40A40C611A97A52000D4F834 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 8F48NKUJX6;
+						DevelopmentTeam = 33F9QSSJDD;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 0;
@@ -272,7 +272,7 @@
 					};
 					40A40C7D1A97A52000D4F834 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 8F48NKUJX6;
+						DevelopmentTeam = 33F9QSSJDD;
 						TestTargetID = 40A40C611A97A52000D4F834;
 					};
 				};
