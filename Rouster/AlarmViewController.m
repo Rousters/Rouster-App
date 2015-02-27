@@ -16,6 +16,7 @@
 @interface AlarmViewController () <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
 @property (weak, nonatomic  ) IBOutlet UIDatePicker    *timePicker;
+@property (strong, nonatomic) IBOutlet UIView *view;
 @property (weak, nonatomic  ) IBOutlet UILabel         *commitmentLabel;
 @property (strong, nonatomic) SoundController * soundController;
 @property (weak, nonatomic  ) NSDate          * alarmTime;
@@ -34,6 +35,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.stepsLabel setFont:[UIFont boldSystemFontOfSize:16]];
+    [self.commitmentLabel setFont:[UIFont boldSystemFontOfSize:24]];
+    
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Clock.png"]]];
+    
+    
     [self.timePicker setMinimumDate:[NSDate date]];
     //MARK - ALL PEDOMETER MAGIC
     _stepModel = [[DTStepModelController alloc] init];
@@ -210,9 +219,9 @@
             self.stepsLabel.text = [NSString stringWithFormat:@"%ld",
                                     (long)self.globalSteps];
             self.stepsLabel.textColor = [UIColor colorWithRed:0
-                                                        green:0.8
-                                                         blue:0
-                                                        alpha:1];
+                                                        green:0
+                                                         blue:5
+                                                        alpha:3];
             
         }
         else
