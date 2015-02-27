@@ -12,5 +12,7 @@
 
 +(id)sharedService;
 - (void)getUUID;
--(void)createUser:(void (^)(NSString *token, NSString *error))completionHandler;
+-(void)createUser;
+-(void)alarmSet:(NSString*)alarmTime;
+
 @end

@@ -15,17 +15,15 @@
 
 @interface AlarmViewController () <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
-
-
 @property (weak, nonatomic  ) IBOutlet UIDatePicker    *timePicker;
 @property (weak, nonatomic  ) IBOutlet UILabel         *commitmentLabel;
-
 @property (strong, nonatomic) SoundController * soundController;
 @property (weak, nonatomic  ) NSDate          * alarmTime;
 @property (weak, nonatomic)   NSDate          * lastAlarm;
 @property (weak, nonatomic  ) NSTimer         * checkTime;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
+- (NSTimeInterval)timeIntervalSince1970;
 @end
 
 @implementation AlarmViewController
@@ -43,16 +41,8 @@
                     options:NSKeyValueObservingOptionNew context:NULL];
     
     [self _updateSteps:_stepModel.stepsToday];
-    
-    
-   
   
-  [[NetworkController sharedService]createUser:^(NSString *token, NSString *error) {
-    
-  
-    
-    NSLog(@"%@",token);
-  }];
+  [[NetworkController sharedService]createUser];
   
   self.soundController = [[SoundController alloc]init];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
@@ -99,7 +89,11 @@
   self.alarmTime = self.timePicker.date;
   self.checkTime = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(triggerAlarm:) userInfo:nil repeats:true];
   NSLog(@"%@", self.alarmTime);
-    
+  
+  NSDate *dateToConvertForDB = self.timePicker.date;
+  NSString *dateForDB = [NSString stringWithFormat:@"%.0f", [dateToConvertForDB timeIntervalSince1970]];
+  
+  [[NetworkController sharedService]alarmSet:dateForDB];
     
   
 }//commitTime
