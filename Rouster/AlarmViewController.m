@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "DTStepModelController.h"
 #import "NetworkController.h"
+//@import CoreMotion;
 
 
 @interface AlarmViewController () <CLLocationManagerDelegate>
@@ -24,7 +25,7 @@
 @property (weak, nonatomic  ) NSTimer         * checkSteps;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, assign) NSInteger globalSteps;
-
+//@property (strong,nonatomic) CMGyroData* rotation;
 @end
 
 @implementation AlarmViewController
@@ -42,7 +43,6 @@
                     options:NSKeyValueObservingOptionNew context:NULL];
     
     [self _updateSteps:_stepModel.stepsToday];
-  
   [[NetworkController sharedService]getUUID];
   [[NetworkController sharedService]createUser];
   
@@ -98,8 +98,20 @@
   
   [[NetworkController sharedService]alarmSet:dateForDB];
   
+  //detect position to black out screen
+  [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
+  
   
 }//commitTime
+
+
+- (void)orientationChanged:(NSNotification *)notification {
+  // Respond to changes in device orientation
+  NSLog(@"%@",notification.description);
+  
+}
+
 
 -(void) checkSteps:(NSTimer *)stepsCheck {
   
