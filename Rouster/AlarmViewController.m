@@ -106,6 +106,7 @@
 }//commitTime
 
 -(void) checkSteps:(NSTimer *)stepsCheck {
+    [self.soundController playSound];
     
     if (self.globalSteps >= 30) {
         NSLog(@"I have moved over 30 steps");
@@ -120,12 +121,13 @@
                                                         handler:^(UIAlertAction * action) {
                                                             
                                                             //[self.soundController stopSound];
-                                                            [self.checkSteps invalidate];
+                                                    [self.checkSteps invalidate];
                                                             
                                                         }];
         
         [alertSteps addAction:confirm];
-        [self.checkSteps invalidate];
+        [self presentViewController:alertSteps animated:YES completion:nil];
+        //[self.checkSteps invalidate];
 
     }
  
@@ -145,20 +147,23 @@
   
   UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault
                                                  handler:^(UIAlertAction * action) {
+                                                     [self.checkTime invalidate];
                                                      
                                                  }];
 
     [alert addAction:confirm];
     
-       self.checkSteps = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkSteps:) userInfo:nil repeats:true];
+    
     
   
   NSLog(@"Checking time");
   if ([NSDate date] >= self.alarmTime) {
     
-    [self.soundController playSound];
+    //[self.soundController playSound];
     NSLog(@"WAKE UP!!!!!!!");
     [self presentViewController:alert animated:YES completion:nil];
+      
+      self.checkSteps = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkSteps:) userInfo:nil repeats:true];
       
       
   } 
