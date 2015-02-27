@@ -50,8 +50,7 @@
   [[NetworkController sharedService]createUser:^(NSString *token, NSString *error) {
     
   
-    //[[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
-    //[[NSUserDefaults standardUserDefaults] synchronize];
+    
     NSLog(@"%@",token);
   }];
   

@@ -92,10 +92,14 @@
             
           case 200 ... 299: {
            
-//           NSLog(@"the status code was %ld",(long)statusCode);
-//            
-            //NSData* tokenData = [NSJSONSerialization dataWithJSONObject:data options:0 error:&error];
-//            NSLog(@"%@",tokenDict);
+            if (data != nil) {
+              
+              //NSDictionary *jsonDict = [[NSDictionary alloc]init];
+              NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+              NSString *token = jsonDict[@"eat"];
+              [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+              [[NSUserDefaults standardUserDefaults] synchronize];
+            }
             break;
           }//case 200..299
           default:
