@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "NetworkController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
+  [[NetworkController sharedService]getUUID];
+//  [[NetworkController sharedService]createUser:^(NSString *token, NSString *error) {
+//    
+//    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//    NSLog(@"%@",token);
+//  }];
   return YES;
 }
 

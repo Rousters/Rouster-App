@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.73147533669999998" green="0.80463199460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="INSTRUCTIONS" image="Instructions" selectedImage="Instructions" id="RYu-Vx-Zd6"/>
+                    <tabBarItem key="tabBarItem" title="INSTRUCTIONS" image="Instructions" id="RYu-Vx-Zd6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BpG-UZ-WeI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.73147533669999998" green="0.80463199460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="STATS" image="Dashboard" selectedImage="Dashboard" id="57d-Pm-0b6"/>
+                    <tabBarItem key="tabBarItem" title="STATS" image="Dashboard" id="57d-Pm-0b6"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDr-4d-azc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -56,9 +56,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awu-qY-Xxf">
-                                <rect key="frame" x="273" y="513" width="54" height="30"/>
+                                <rect key="frame" x="273" y="515" width="55" height="28"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="15"/>
                                 <state key="normal" title="Commit">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.02578686466118316" green="0.66280381941111099" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="commitTime:" destination="J74-pY-bu3" eventType="touchUpInside" id="Hsf-iS-z5I"/>
@@ -70,10 +71,18 @@
                                     <!--2015-02-23 22:32:15 +0000-->
                                 </date>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What time will you wake up?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTQ-ex-EU0">
-                                <rect key="frame" x="191" y="106" width="219" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTQ-ex-EU0">
+                                <rect key="frame" x="177" y="106" width="247" height="18"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="What time will you wake up?">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="Copperplate"/>
+                                            <font key="NSOriginalFont" size="17" name="Copperplate"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or7-Xu-Ila">
@@ -101,7 +110,7 @@
                             <constraint firstItem="or7-Xu-Ila" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leading" constant="228" id="rW1-aj-VKg"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ALARM" image="Alarm" selectedImage="Alarm" id="O1n-cf-WDk"/>
+                    <tabBarItem key="tabBarItem" title="ALARM" image="Alarm" id="O1n-cf-WDk"/>
                     <connections>
                         <outlet property="commitmentLabel" destination="CTQ-ex-EU0" id="8ZM-TA-rrm"/>
                         <outlet property="stepsLabel" destination="or7-Xu-Ila" id="cyg-vo-7w7"/>
