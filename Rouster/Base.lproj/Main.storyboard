@@ -132,9 +132,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or7-Xu-Ila">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or7-Xu-Ila">
                                 <rect key="frame" x="217" y="416" width="166" height="21"/>
-                                <color key="backgroundColor" red="0.9215686917" green="0.98431378599999997" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="EFM-pC-IFX"/>
                                     <constraint firstAttribute="width" constant="166" id="ooy-3r-Noy"/>
@@ -145,7 +144,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEPS:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnt-9R-pkS">
                                 <rect key="frame" x="217" y="394" width="166" height="21"/>
-                                <color key="backgroundColor" red="0.9215686917" green="0.98431378599999997" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="166" id="H2H-EC-vpk"/>
                                     <constraint firstAttribute="height" constant="21" id="WgH-wH-IeO"/>
@@ -197,6 +195,7 @@
                         <outlet property="commitmentLabel" destination="CTQ-ex-EU0" id="8ZM-TA-rrm"/>
                         <outlet property="stepsLabel" destination="or7-Xu-Ila" id="cyg-vo-7w7"/>
                         <outlet property="timePicker" destination="PCL-in-h24" id="fu4-dR-dcg"/>
+                        <outlet property="view" destination="bID-KU-DyS" id="JNT-Ek-VGu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eh9-MB-PbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
