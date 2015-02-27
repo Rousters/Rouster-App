@@ -85,6 +85,17 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or7-Xu-Ila">
+                                <rect key="frame" x="228" y="423" width="166" height="21"/>
+                                <color key="backgroundColor" red="0.9215686917" green="0.98431378599999997" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="FOt-3Z-l1a"/>
+                                    <constraint firstAttribute="width" constant="166" id="Oxx-yC-JjH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.73147533669999998" green="0.80463199460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -102,6 +113,7 @@
                     <tabBarItem key="tabBarItem" title="ALARM" image="Alarm" id="O1n-cf-WDk"/>
                     <connections>
                         <outlet property="commitmentLabel" destination="CTQ-ex-EU0" id="8ZM-TA-rrm"/>
+                        <outlet property="stepsLabel" destination="or7-Xu-Ila" id="cyg-vo-7w7"/>
                         <outlet property="timePicker" destination="PCL-in-h24" id="fu4-dR-dcg"/>
                     </connections>
                 </viewController>

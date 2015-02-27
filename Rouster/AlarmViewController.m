@@ -8,8 +8,14 @@
 
 #import "AlarmViewController.h"
 #import "SoundController.h"
+#import <CoreLocation/CoreLocation.h>
+#import "DTStepModelController.h"
 #import "NetworkController.h"
-@interface AlarmViewController () 
+
+
+@interface AlarmViewController () <CLLocationManagerDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
+
 
 @property (weak, nonatomic  ) IBOutlet UIDatePicker    *timePicker;
 @property (weak, nonatomic  ) IBOutlet UILabel         *commitmentLabel;
