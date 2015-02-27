@@ -284,7 +284,7 @@
             if (data != nil) {
               
               NSDictionary* jsondictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-              NSNumber* points = jsondictionary[@"pointCount"];
+              NSNumber* points = jsondictionary[@"percentage"];
               dispatch_async(dispatch_get_main_queue(), ^{
                 completionHandler(points,nil);
               });

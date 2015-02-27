@@ -20,6 +20,8 @@
     // Do any additional setup after loading the view.
   [[NetworkController sharedService]getScore:^(NSNumber *score, NSString *error) {
     
+    //double myscore = [score doubleValue];
+    self.scoreLabel.text = [NSString stringWithFormat: @"%@%%", score];
     
   }];
 }

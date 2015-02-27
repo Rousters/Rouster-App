@@ -16,7 +16,29 @@
                     <view key="view" contentMode="scaleToFill" id="qQa-iN-OEz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TjE-P0-Kpl">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Welcome to Rouster!  Set your alarm and do not close the app. Leave phone plugged in and face down next to your bed. When you set the alarm, the time will be sent to the server. When it goes off, walk 15 steps with your phone to silence. Acknowledge the alert that displays and a confirmation will be sent to confirm that you woke up on time.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Copperplate"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="0.73147533669999998" green="0.80463199460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="TjE-P0-Kpl" firstAttribute="leading" secondItem="qQa-iN-OEz" secondAttribute="leadingMargin" constant="-16" id="Enh-hA-wo4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TjE-P0-Kpl" secondAttribute="trailing" constant="-16" id="PSA-ev-bUb"/>
+                            <constraint firstItem="TjE-P0-Kpl" firstAttribute="bottom" secondItem="qQa-iN-OEz" secondAttribute="bottomMargin" id="nBg-re-QSS"/>
+                            <constraint firstItem="TjE-P0-Kpl" firstAttribute="top" secondItem="23Z-iR-2aB" secondAttribute="bottom" id="uNv-xb-UTb"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="INSTRUCTIONS" image="Instructions" id="RYu-Vx-Zd6"/>
                 </viewController>
@@ -41,17 +63,17 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="114" id="VRx-yW-Xij"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nf-0T-sLR">
-                                <rect key="frame" x="232" y="224" width="136" height="18"/>
+                                <rect key="frame" x="209" y="218" width="183" height="24"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Current Score:">
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="17" name="Copperplate"/>
+                                            <font key="NSFont" size="23" name="Copperplate"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
@@ -90,16 +112,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awu-qY-Xxf">
-                                <rect key="frame" x="273" y="515" width="55" height="28"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="15"/>
-                                <state key="normal" title="Commit">
-                                    <color key="titleColor" red="0.02578686466118316" green="0.66280381941111099" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="commitTime:" destination="J74-pY-bu3" eventType="touchUpInside" id="Hsf-iS-z5I"/>
-                                </connections>
-                            </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="PCL-in-h24">
                                 <rect key="frame" x="0.0" y="219" width="600" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="446423535.34786201">
@@ -107,12 +119,12 @@
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTQ-ex-EU0">
-                                <rect key="frame" x="177" y="106" width="247" height="18"/>
+                                <rect key="frame" x="120" y="106" width="362" height="26"/>
                                 <attributedString key="attributedText">
                                     <fragment content="What time will you wake up?">
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="17" name="Copperplate"/>
+                                            <font key="NSFont" size="25" name="Copperplate"/>
                                             <font key="NSOriginalFont" size="17" name="Copperplate"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
@@ -121,7 +133,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or7-Xu-Ila">
-                                <rect key="frame" x="217" y="426" width="166" height="21"/>
+                                <rect key="frame" x="217" y="416" width="166" height="21"/>
                                 <color key="backgroundColor" red="0.9215686917" green="0.98431378599999997" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="EFM-pC-IFX"/>
@@ -132,7 +144,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEPS:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnt-9R-pkS">
-                                <rect key="frame" x="217" y="404" width="166" height="21"/>
+                                <rect key="frame" x="217" y="394" width="166" height="21"/>
                                 <color key="backgroundColor" red="0.9215686917" green="0.98431378599999997" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="166" id="H2H-EC-vpk"/>
@@ -142,24 +154,36 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awu-qY-Xxf">
+                                <rect key="frame" x="255" y="478" width="91" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="ssS-Rf-AUc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="25"/>
+                                <state key="normal" title="Commit">
+                                    <color key="titleColor" red="0.02578686466118316" green="0.66280381941111099" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="commitTime:" destination="J74-pY-bu3" eventType="touchUpInside" id="Hsf-iS-z5I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.73147533669999998" green="0.80463199460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="awu-qY-Xxf" firstAttribute="top" secondItem="or7-Xu-Ila" secondAttribute="bottom" constant="41" id="4r6-7V-FKQ"/>
                             <constraint firstItem="or7-Xu-Ila" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leadingMargin" constant="201" id="6cW-Y5-gbp"/>
-                            <constraint firstItem="or7-Xu-Ila" firstAttribute="centerX" secondItem="awu-qY-Xxf" secondAttribute="centerX" id="74y-oU-HmB"/>
-                            <constraint firstItem="awu-qY-Xxf" firstAttribute="centerX" secondItem="PCL-in-h24" secondAttribute="centerX" id="ART-vf-txv"/>
+                            <constraint firstItem="awu-qY-Xxf" firstAttribute="centerX" secondItem="PCL-in-h24" secondAttribute="centerX" id="8eo-Np-ikn"/>
                             <constraint firstItem="CTQ-ex-EU0" firstAttribute="top" secondItem="wCq-e8-AbN" secondAttribute="bottom" constant="86" id="Ecf-Bg-kFU"/>
-                            <constraint firstItem="awu-qY-Xxf" firstAttribute="top" secondItem="or7-Xu-Ila" secondAttribute="bottom" constant="68" id="Gs7-cJ-ESN"/>
                             <constraint firstAttribute="trailing" secondItem="PCL-in-h24" secondAttribute="trailing" id="MRP-Sl-VBH"/>
-                            <constraint firstItem="UjX-ot-vew" firstAttribute="top" secondItem="awu-qY-Xxf" secondAttribute="bottom" constant="8" symbolic="YES" id="PGj-Fy-DU4"/>
+                            <constraint firstItem="UjX-ot-vew" firstAttribute="top" secondItem="awu-qY-Xxf" secondAttribute="bottom" constant="35" id="S05-Xl-dp1"/>
                             <constraint firstItem="PCL-in-h24" firstAttribute="centerY" secondItem="bID-KU-DyS" secondAttribute="centerY" id="dEe-4D-Rwq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="or7-Xu-Ila" secondAttribute="trailing" constant="201" id="hTU-4u-Fby"/>
                             <constraint firstItem="PCL-in-h24" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leading" id="jbX-R6-T09"/>
-                            <constraint firstItem="awu-qY-Xxf" firstAttribute="top" secondItem="or7-Xu-Ila" secondAttribute="bottom" constant="68" id="jph-TA-CLX"/>
                             <constraint firstItem="or7-Xu-Ila" firstAttribute="top" secondItem="Mnt-9R-pkS" secondAttribute="bottom" constant="1" id="ozK-rl-dwX"/>
-                            <constraint firstItem="CTQ-ex-EU0" firstAttribute="centerX" secondItem="PCL-in-h24" secondAttribute="centerX" id="qcQ-lF-S1g"/>
+                            <constraint firstItem="CTQ-ex-EU0" firstAttribute="centerX" secondItem="PCL-in-h24" secondAttribute="centerX" constant="1" id="qcQ-lF-S1g"/>
                             <constraint firstItem="or7-Xu-Ila" firstAttribute="top" secondItem="PCL-in-h24" secondAttribute="bottom" constant="45" id="r7a-xZ-64H"/>
                             <constraint firstItem="Mnt-9R-pkS" firstAttribute="leading" secondItem="or7-Xu-Ila" secondAttribute="leading" id="u6c-oQ-THC"/>
+                            <constraint firstItem="awu-qY-Xxf" firstAttribute="centerX" secondItem="or7-Xu-Ila" secondAttribute="centerX" id="ye9-cB-XhK"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
