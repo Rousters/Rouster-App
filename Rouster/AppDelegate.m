@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
-  [[NetworkController sharedService]getUUID];
+  
 //  [[NetworkController sharedService]createUser:^(NSString *token, NSString *error) {
 //    
 //    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];

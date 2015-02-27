@@ -158,5 +158,4 @@
     [self _stopLiveCounting];
 }
 
-
 @end

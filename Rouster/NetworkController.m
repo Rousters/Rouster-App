@@ -11,7 +11,7 @@
 @interface NetworkController ()
 
 
-@property (weak,nonatomic)NSString *deviceId;
+//@property (weak,nonatomic)NSString *deviceId;
 
 @end
 
@@ -31,22 +31,22 @@
 
 - (void)getUUID {
   
-  NSString *id = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceUUID"];
-  if (id == nil) {
+  NSMutableString *tempId = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceUUID"];
+  if (tempId == nil) {
     CFUUIDRef   uuid;
     CFStringRef uuidStr;
     
     uuid = CFUUIDCreate(NULL);
     uuidStr = CFUUIDCreateString(NULL, uuid);
     
-    id = [NSString stringWithFormat:@"%@", uuidStr];
-    [[NSUserDefaults standardUserDefaults] setObject:id forKey:@"deviceUUID"];
+    tempId = [NSMutableString stringWithFormat:@"%@", uuidStr];
+    [[NSUserDefaults standardUserDefaults] setObject:tempId forKey:@"deviceUUID"];
     [[NSUserDefaults standardUserDefaults] synchronize];
   }
 }
 
 
--(void)createUser:(void (^)(NSString *token, NSString *error))completionHandler {
+-(void)createUser {
   
   NSString *localToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
   if (localToken == nil) {
@@ -73,6 +73,7 @@
     NSMutableURLRequest *request    = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
     [request setHTTPBody:jsonData];
 
     NSURLSession *session           = [NSURLSession sharedSession];
@@ -80,22 +81,25 @@
     NSURLSessionTask *dataTask      = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
       
       if (error) {
-        NSLog(@"could not connet %@",error.description);
-        completionHandler(nil,@"Could not connect because %@");
-      } else {
+        NSLog(@"could not connect %@",error.description);
+              } else {
 
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         NSInteger statusCode            = httpResponse.statusCode;
         NSLog(@"the status code for post was %lu", statusCode);
-        NSLog(@"the responce was %@", httpResponse.description);
+        NSLog(@"the response was %@", httpResponse.description);
         switch (statusCode) {
             
           case 200 ... 299: {
            
-//           NSLog(@"the status code was %ld",(long)statusCode);
-//            
-            //NSData* tokenData = [NSJSONSerialization dataWithJSONObject:data options:0 error:&error];
-//            NSLog(@"%@",tokenDict);
+            if (data != nil) {
+              
+              //NSDictionary *jsonDict = [[NSDictionary alloc]init];
+              NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+              NSString *token = jsonDict[@"eat"];
+              [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+              [[NSUserDefaults standardUserDefaults] synchronize];
+            }
             break;
           }//case 200..299
           default:
@@ -105,10 +109,196 @@
       }//if else
     }];//data task
     [dataTask resume];
-//
+  }//if local token
+}//create user
+
+
+
+-(void)alarmSet:(NSString*)alarmTime {
+  
+  
+  NSString *localToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+  if (localToken != nil) {
+    
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceUUID"];
+    
+    NSDictionary *userDict = @{@"id":userId,@"time":alarmTime};
+    //NSLog(@"%@", userString);
+  
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userDict options:0 error:&error];
+    
+    if (jsonData) {
+      
+      NSLog(@"user dictionary = %@", jsonData.description);
+      
+    } else {
+      NSLog(@"Unable to serialize the data %@: %@", userDict, error);
+    }
+    
+    NSString *urlString             = @"http://rouster.herokuapp.com/create_alarm";
+    NSURL *url                      = [NSURL URLWithString:urlString];
+    
+    NSMutableURLRequest *request    = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%lu",(unsigned long)jsonData.length] forHTTPHeaderField:@"Content-Length"];
+    [request setValue:localToken forHTTPHeaderField:@"eat"];
+    
+    [request setHTTPBody:jsonData];
+    
+    NSURLSession *session           = [NSURLSession sharedSession];
+    
+    NSURLSessionTask *dataTask      = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+      
+      if (error) {
+        NSLog(@"could not connet %@",error.description);
+      } else {
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        NSInteger statusCode            = httpResponse.statusCode;
+        NSLog(@"the status code for post was %lu", statusCode);
+        NSLog(@"the response was %@", httpResponse.description);
+        switch (statusCode) {
+            
+          case 200 ... 299: {
+            
+            if (data != nil) {
+              
+              NSLog(@"%@",data.description);
+            }
+            break;
+          }//case 200..299
+          default:
+            NSLog(@"%ld",(long)statusCode);
+            break;
+        }//switch
+      }//if else
+    }];//data task
+    [dataTask resume];
+  }//if token nil
+}//alarmSet
+
+
+
+-(void)alarmConfirmed:(NSString *)wakeTime {
+  
+  
+  NSString *localToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+  if (localToken != nil) {
+  
+  NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceUUID"];
+  
+  NSDictionary *userDict = @{@"id":userId,@"wakeTime":wakeTime};
+  //NSLog(@"%@", userString);
+  
+  NSError *error = nil;
+  NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userDict options:0 error:&error];
+  
+  if (jsonData) {
+    
+    NSLog(@"user dictionary = %@", jsonData.description);
+    
+  } else {
+    NSLog(@"Unable to serialize the data %@: %@", userDict, error);
   }
   
+  NSString *urlString             = @"http://rouster.herokuapp.com/check_alarm";
+  NSURL *url                      = [NSURL URLWithString:urlString];
   
-}
+  NSMutableURLRequest *request    = [[NSMutableURLRequest alloc] initWithURL:url];
+  [request setHTTPMethod:@"PATCH"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:localToken forHTTPHeaderField:@"eat"];
+  [request setHTTPBody:jsonData];
+  
+  
+  NSURLSession *session           = [NSURLSession sharedSession];
+  
+  NSURLSessionTask *dataTask      = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    
+    if (error) {
+      NSLog(@"could not connet %@",error.description);
+    } else {
+      
+      NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+      NSInteger statusCode            = httpResponse.statusCode;
+      NSLog(@"the status code for post was %lu", statusCode);
+      NSLog(@"the response was %@", httpResponse.description);
+      switch (statusCode) {
+          
+        case 200 ... 299: {
+          
+          if (data != nil) {
+            
+            NSLog(@"%@",data.description);
+          }
+          break;
+        }//case 200..299
+        default:
+          NSLog(@"%ld",(long)statusCode);
+          break;
+      }//switch
+    }//if else
+  }];//data task
+  [dataTask resume];
+  }//if token nil
+}//alarm confirmed
+
+
+
+-(void)getScore:(void (^)(NSNumber *score, NSString *error))completionHandler {
+  
+  
+  NSString *localToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+  if (localToken != nil) {
+    
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceUUID"];
+    
+    NSString *urlString             = @"http://rouster.herokuapp.com/get_points";
+    NSURL *url                      = [NSURL URLWithString:urlString];
+    
+    NSMutableURLRequest *request    = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:localToken forHTTPHeaderField:@"eat"];
+    [request setValue:userId forHTTPHeaderField:@"id"];
+    
+    
+    NSURLSession *session           = [NSURLSession sharedSession];
+    
+    NSURLSessionTask *dataTask      = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+      
+      if (error) {
+        NSLog(@"could not connet %@",error.description);
+      } else {
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        NSInteger statusCode            = httpResponse.statusCode;
+        NSLog(@"the status code for post was %lu", statusCode);
+        NSLog(@"the response was %@", httpResponse.description);
+        switch (statusCode) {
+            
+          case 200 ... 299: {
+            
+            if (data != nil) {
+              
+              NSDictionary* jsondictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+              NSNumber* points = jsondictionary[@"percentage"];
+              dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(points,nil);
+              });
+            }
+            break;
+          }//case 200..299
+          default:
+            NSLog(@"%ld",(long)statusCode);
+            break;
+        }//switch
+      }//if else
+    }];//data task
+    [dataTask resume];
+  }//if token nil
+}//alarm confirmed
 
 @end

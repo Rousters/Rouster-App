@@ -7,9 +7,10 @@
 //
 
 #import "DashboardViewController.h"
+#import "NetworkController.h"
 
 @interface DashboardViewController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @end
 
 @implementation DashboardViewController
@@ -17,6 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+  [[NetworkController sharedService]getScore:^(NSNumber *score, NSString *error) {
+    
+    //double myscore = [score doubleValue];
+    self.scoreLabel.text = [NSString stringWithFormat: @"%@%%", score];
+    
+  }];
 }
 
 - (void)didReceiveMemoryWarning {

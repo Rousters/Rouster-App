@@ -12,5 +12,9 @@
 
 +(id)sharedService;
 - (void)getUUID;
--(void)createUser:(void (^)(NSString *token, NSString *error))completionHandler;
+-(void)createUser;
+-(void)alarmSet:(NSString*)alarmTime;
+-(void)alarmConfirmed:(NSString *)alarmTime;
+-(void)getScore:(void (^)(NSNumber *score, NSString *error))completionHandler;
+
 @end

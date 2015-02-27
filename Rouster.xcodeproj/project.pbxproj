@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		403E9C511AA0C30A00BDFB0F /* Background07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 403E9C501AA0C30A00BDFB0F /* Background07.jpg */; };
 		4075C80D1A9BF227007EA5B3 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4075C80C1A9BF227007EA5B3 /* AlarmViewController.m */; };
 		4075C8131A9BF3FE007EA5B3 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4075C8121A9BF3FE007EA5B3 /* InstructionsViewController.m */; };
 		4075C8161A9BF61E007EA5B3 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4075C8151A9BF61E007EA5B3 /* DashboardViewController.m */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		403E9C501AA0C30A00BDFB0F /* Background07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Background07.jpg; sourceTree = "<group>"; };
 		4075C80B1A9BF227007EA5B3 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
 		4075C80C1A9BF227007EA5B3 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
 		4075C8111A9BF3FE007EA5B3 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		40A40C651A97A52000D4F834 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				403E9C501AA0C30A00BDFB0F /* Background07.jpg */,
 				4075C8201A9D3920007EA5B3 /* Sounds */,
 				40A40C901A97B9EB00D4F834 /* .gitignore */,
 				40A40C661A97A52000D4F834 /* Info.plist */,
@@ -263,7 +266,7 @@
 				TargetAttributes = {
 					40A40C611A97A52000D4F834 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 33F9QSSJDD;
+						DevelopmentTeam = 8F48NKUJX6;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 0;
@@ -272,7 +275,7 @@
 					};
 					40A40C7D1A97A52000D4F834 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 33F9QSSJDD;
+						DevelopmentTeam = 8F48NKUJX6;
 						TestTargetID = 40A40C611A97A52000D4F834;
 					};
 				};
@@ -307,6 +310,7 @@
 				488B6F531A99953B004BDF1E /* Tasks in Resources */,
 				40A40C791A97A52000D4F834 /* LaunchScreen.xib in Resources */,
 				40A40C761A97A52000D4F834 /* Images.xcassets in Resources */,
+				403E9C511AA0C30A00BDFB0F /* Background07.jpg in Resources */,
 				4075C8251A9E70F2007EA5B3 /* readme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
