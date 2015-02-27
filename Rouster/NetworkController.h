@@ -14,5 +14,6 @@
 - (void)getUUID;
 -(void)createUser;
 -(void)alarmSet:(NSString*)alarmTime;
+-(void)alarmConfirmed:(NSString *)alarmTime;
 
 @end

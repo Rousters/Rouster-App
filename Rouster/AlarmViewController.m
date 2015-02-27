@@ -25,7 +25,6 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, assign) NSInteger globalSteps;
 
-- (NSTimeInterval)timeIntervalSince1970;
 @end
 
 @implementation AlarmViewController
@@ -35,7 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.timePicker setMinimumDate:[NSDate date]];
     //MARK - ALL PEDOMETER MAGIC
     _stepModel = [[DTStepModelController alloc] init];
     
@@ -44,6 +43,7 @@
     
     [self _updateSteps:_stepModel.stepsToday];
   
+  [[NetworkController sharedService]getUUID];
   [[NetworkController sharedService]createUser];
   
   self.soundController = [[SoundController alloc]init];
@@ -62,6 +62,7 @@
 
   self.timePicker.date = [NSDate date];
   }//if else
+  
 }//viewDidLoad
 
 - (void)dealloc
@@ -96,7 +97,7 @@
   NSString *dateForDB = [NSString stringWithFormat:@"%.0f", [dateToConvertForDB timeIntervalSince1970]];
   
   [[NetworkController sharedService]alarmSet:dateForDB];
-    
+  
   
 }//commitTime
 
@@ -104,10 +105,11 @@
     [self.soundController playSound];
     
     if (self.globalSteps >= 30) {
+      [self.checkSteps invalidate];
         NSLog(@"I have moved over 30 steps");
-        [self.soundController stopSound];
-        [self.checkTime invalidate];
-        
+      [self.soundController stopSound];
+      
+      
         UIAlertController* alertSteps = [UIAlertController alertControllerWithTitle:@"Roust!"
                                                                        message:@"Congratulations you have moved over 30 steps.  Enjoy your day"
                                                                      preferredStyle:UIAlertControllerStyleAlert];
@@ -116,14 +118,20 @@
                                                         handler:^(UIAlertAction * action) {
                                                             
                                                             //[self.soundController stopSound];
-                                                    [self.checkSteps invalidate];
-                                                            
+                                                    
+                                                          
+                                                          NSDate *dateToConvertForDB = [NSDate date];
+                                                          NSString *dateForDB = [NSString stringWithFormat:@"%.0f", [dateToConvertForDB timeIntervalSince1970]];
+                                                          [[NetworkController sharedService]alarmConfirmed:dateForDB];
                                                         }];
         
         [alertSteps addAction:confirm];
+      
         [self presentViewController:alertSteps animated:YES completion:nil];
-        //[self.checkSteps invalidate];
-
+      self.globalSteps = 0;
+      
+     
+      
     }
  
 }
@@ -131,7 +139,7 @@
 #pragma mark - Trigger Alarm
 //Check for match every 60 seconds. Fire alarm when match exists.
 -(void) triggerAlarm:(NSTimer *)timeCheck {
-    
+  
     
   
   UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Roust!"
@@ -142,8 +150,8 @@
   
   UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault
                                                  handler:^(UIAlertAction * action) {
-                                                     [self.checkTime invalidate];
-                                                     
+                                                   
+                                                   
                                                  }];
 
     [alert addAction:confirm];
@@ -153,7 +161,7 @@
   
   NSLog(@"Checking time");
   if ([NSDate date] >= self.alarmTime) {
-    
+    [self.checkTime invalidate];
     //[self.soundController playSound];
     NSLog(@"WAKE UP!!!!!!!");
     [self presentViewController:alert animated:YES completion:nil];
@@ -187,6 +195,7 @@
 {
     // force main queue for UIKit
     dispatch_async(dispatch_get_main_queue(), ^{
+  
         if (steps>=0)
         {
             self.globalSteps = steps;
