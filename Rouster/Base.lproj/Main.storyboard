@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JdR-bx-IGB">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
@@ -93,9 +92,11 @@
                             <constraint firstItem="CTQ-ex-EU0" firstAttribute="top" secondItem="wCq-e8-AbN" secondAttribute="bottom" constant="86" id="Ecf-Bg-kFU"/>
                             <constraint firstAttribute="trailing" secondItem="PCL-in-h24" secondAttribute="trailing" id="MRP-Sl-VBH"/>
                             <constraint firstItem="UjX-ot-vew" firstAttribute="top" secondItem="awu-qY-Xxf" secondAttribute="bottom" constant="8" symbolic="YES" id="PGj-Fy-DU4"/>
+                            <constraint firstAttribute="centerY" secondItem="or7-Xu-Ila" secondAttribute="centerY" constant="-133.5" id="YI6-4g-1rz"/>
                             <constraint firstItem="PCL-in-h24" firstAttribute="centerY" secondItem="bID-KU-DyS" secondAttribute="centerY" id="dEe-4D-Rwq"/>
                             <constraint firstItem="PCL-in-h24" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leading" id="jbX-R6-T09"/>
                             <constraint firstItem="CTQ-ex-EU0" firstAttribute="centerX" secondItem="PCL-in-h24" secondAttribute="centerX" id="qcQ-lF-S1g"/>
+                            <constraint firstItem="or7-Xu-Ila" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leading" constant="228" id="rW1-aj-VKg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="ALARM" image="Alarm" id="O1n-cf-WDk"/>

@@ -1,42 +1,43 @@
 //
-//  PedometerController.m
+//  DTStepModelController.m
 //  Rouster
 //
-//  Created by Rodrigo Carballo on 2/24/15.
+//  Created by Rodrigo Carballo on 2/26/15.
 //  Copyright (c) 2015 Eric Mentele. All rights reserved.
 //
 
-#import "PedometerController.h"
+#import "DTStepModelController.h"
 #import <CoreMotion/CoreMotion.h>
+#import <UIKit/UIKit.h>
 
-
-@interface PedometerController ()
+@interface DTStepModelController ()
 
 @property (assign) NSInteger stepsToday;
 
 @end
 
-@implementation PedometerController
-
-CMStepCounter *_stepCounter;
-NSInteger _stepsToday;
-NSInteger _stepsAtBeginOfLiveCounting;
-BOOL _isLiveCounting;
-NSOperationQueue *_stepQueue;
+@implementation DTStepModelController
+{
+    CMStepCounter *_stepCounter;
+    NSInteger _stepsToday;
+    NSInteger _stepsAtBeginOfLiveCounting;
+    BOOL _isLiveCounting;
+    NSOperationQueue *_stepQueue;
+}
 
 - (instancetype)init
 {
     self = [super init];
     
-    if (self)
-    {
-        _stepCounter = [[CMStepCounter alloc] init];
-        self.stepsToday = -1;
-        
-        NSNotificationCenter *noteCenter = [NSNotificationCenter defaultCenter];
+    if (self) {
+    _stepCounter = [[CMStepCounter alloc] init];
+    self.stepsToday = -1;
+    
+     NSNotificationCenter *noteCenter = [NSNotificationCenter defaultCenter];
         
         // subscribe to relevant notifications
-        [noteCenter addObserver:self selector:@selector(timeChangedSignificantly:) name:UIApplicationSignificantTimeChangeNotification object:nil];
+        [noteCenter addObserver:self selector:@selector(timeChangedSignificantly:)
+                           name:UIApplicationSignificantTimeChangeNotification object:nil];
         [noteCenter addObserver:self selector:@selector(willEnterForeground:)
                            name:UIApplicationWillEnterForegroundNotification
                          object:nil];
@@ -57,10 +58,8 @@ NSOperationQueue *_stepQueue;
 
 - (void)dealloc
 {
-    // remove notification subscriptions
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
 
 // queries the CMStepCounter history from midnight until now
 - (void)_updateStepsTodayFromHistoryLive:(BOOL)startLiveCounting
@@ -82,13 +81,12 @@ NSOperationQueue *_stepQueue;
                                                fromDate:now];
     
     NSDate *beginOfDay = [calendar dateFromComponents:components];
-    //NSdate *beginOfWakeUp =
-    
     
     [_stepCounter queryStepCountStartingFrom:beginOfDay
                                           to:now
                                      toQueue:_stepQueue
-                                 withHandler:^(NSInteger numberOfSteps, NSError *error) {
+                                 withHandler:^(NSInteger numberOfSteps,
+                                               NSError *error) {
                                      
                                      if (error)
                                      {
@@ -120,7 +118,9 @@ NSOperationQueue *_stepQueue;
     _stepsAtBeginOfLiveCounting = 0;
     [_stepCounter startStepCountingUpdatesToQueue:_stepQueue
                                          updateOn:1
-                                      withHandler:^(NSInteger numberOfSteps, NSDate *timestamp, NSError *error) {
+                                      withHandler:^(NSInteger numberOfSteps,
+                                                    NSDate *timestamp,
+                                                    NSError *error) {
                                           self.stepsToday = _stepsAtBeginOfLiveCounting
                                           + numberOfSteps;
                                       }];
@@ -141,10 +141,6 @@ NSOperationQueue *_stepQueue;
     NSLog(@"Stopped live step counting");
 }
 
-
-
-#pragma mark - Notifications
-
 - (void)timeChangedSignificantly:(NSNotification *)notification
 {
     [self _stopLiveCounting];
@@ -161,5 +157,6 @@ NSOperationQueue *_stepQueue;
 {
     [self _stopLiveCounting];
 }
+
 
 @end

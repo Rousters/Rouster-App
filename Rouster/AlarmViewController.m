@@ -7,28 +7,39 @@
 //
 
 #import "AlarmViewController.h"
-#import "PedometerController.h"
 #import "SoundController.h"
 #import "NetworkController.h"
 @interface AlarmViewController () 
 
 @property (weak, nonatomic  ) IBOutlet UIDatePicker    *timePicker;
 @property (weak, nonatomic  ) IBOutlet UILabel         *commitmentLabel;
-@property (weak, nonatomic  ) IBOutlet UILabel         *stepsLabel;
+
 @property (strong, nonatomic) SoundController * soundController;
 @property (weak, nonatomic  ) NSDate          * alarmTime;
 @property (weak, nonatomic)   NSDate          * lastAlarm;
 @property (weak, nonatomic  ) NSTimer         * checkTime;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
 @implementation AlarmViewController
 {
-    PedometerController *_stepModel;
+   DTStepModelController *_stepModel;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //MARK - ALL PEDOMETER MAGIC
+    _stepModel = [[DTStepModelController alloc] init];
+    
+    [_stepModel addObserver:self forKeyPath:@"stepsToday"
+                    options:NSKeyValueObservingOptionNew context:NULL];
+    
+    [self _updateSteps:_stepModel.stepsToday];
+    
+    
+   
   
   [[NetworkController sharedService]createUser:^(NSString *token, NSString *error) {
     
@@ -40,11 +51,8 @@
   
   self.soundController = [[SoundController alloc]init];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
-    _stepModel = [[PedometerController alloc] init];
     
-    [_stepModel addObserver:self forKeyPath:@"stepsToday" options:NSKeyValueObservingOptionNew context:NULL];
     
-    [self _updateSteps:_stepModel.stepsToday];
     
     // Do any additional setup after loading the view.
   //Set time pickers default time position to the last selected time or the current time.
@@ -58,6 +66,11 @@
   self.timePicker.date = [NSDate date];
   }//if else
 }//viewDidLoad
+
+- (void)dealloc
+{
+    [_stepModel removeObserver:self forKeyPath:@"stepsToday"];
+}
 
 
 
@@ -81,6 +94,8 @@
   self.alarmTime = self.timePicker.date;
   self.checkTime = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(triggerAlarm:) userInfo:nil repeats:true];
   NSLog(@"%@", self.alarmTime);
+    
+    
   
 }//commitTime
 
@@ -149,12 +164,9 @@
             self.stepsLabel.textColor = [UIColor redColor];
         }
     });
+
 }
 
-- (void)dealloc
-{
-    [_stepModel removeObserver:self forKeyPath:@"stepsToday"];
-}
 
 #pragma mark - Notifications
 
@@ -164,6 +176,7 @@
 {
     [self _updateSteps:_stepModel.stepsToday];
 }
+
 
 
 
