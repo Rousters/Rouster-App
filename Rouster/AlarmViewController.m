@@ -7,16 +7,18 @@
 //
 
 #import "AlarmViewController.h"
-#import "PedometerController.h"
 #import "SoundController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "DTStepModelController.h"
 
 
 @interface AlarmViewController () <CLLocationManagerDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
+
 
 @property (weak, nonatomic  ) IBOutlet UIDatePicker    *timePicker;
 @property (weak, nonatomic  ) IBOutlet UILabel         *commitmentLabel;
-@property (weak, nonatomic  ) IBOutlet UILabel         *stepsLabel;
+
 @property (strong, nonatomic) SoundController * soundController;
 @property (weak, nonatomic  ) NSDate          * alarmTime;
 @property (weak, nonatomic)   NSDate          * lastAlarm;
@@ -27,43 +29,27 @@
 
 @implementation AlarmViewController
 {
-    PedometerController *_stepModel;
+   DTStepModelController *_stepModel;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //MARK: Location Manager in ViewDidLoad
+    //MARK - ALL PEDOMETER MAGIC
+    _stepModel = [[DTStepModelController alloc] init];
     
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    self.locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
-    [self.locationManager startUpdatingLocation];
+    [_stepModel addObserver:self forKeyPath:@"stepsToday"
+                    options:NSKeyValueObservingOptionNew context:NULL];
     
-    if ([CLLocationManager locationServicesEnabled]) {
-        
-        NSLog(@"current status is %d", [CLLocationManager authorizationStatus]);
-        
-        if ([CLLocationManager authorizationStatus] == 0) {
-            NSLog(@"prompt should show");
-            [self.locationManager requestAlwaysAuthorization];
-            
-        } else {
-            //[self.locationManager startUpdatingLocation];
-            [self.locationManager startMonitoringSignificantLocationChanges];
-        }
-    } else {
-        //warn the user that location services are not currently enabled
-    }
+    [self _updateSteps:_stepModel.stepsToday];
+    
+    
+   
   
   self.soundController = [[SoundController alloc]init];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
-    _stepModel = [[PedometerController alloc] init];
     
-    [_stepModel addObserver:self forKeyPath:@"stepsToday" options:NSKeyValueObservingOptionNew context:NULL];
     
-    [self _updateSteps:_stepModel.stepsToday];
     
     // Do any additional setup after loading the view.
   //Set time pickers default time position to the last selected time or the current time.
@@ -78,20 +64,9 @@
   }//if else
 }//viewDidLoad
 
-//MARK: Location Manager Methods
-
--(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    
-    NSLog(@" the new status is %d", status);
-}
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    CLLocation *location = locations.firstObject;
-    NSLog(@"latitide: %f and longitude: %f",location.coordinate.latitude, location.coordinate.longitude);
-}
-
-- (NSString *)deviceLocation {
-    return [NSString stringWithFormat:@"latitude: %f longitude: %f", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude];
+- (void)dealloc
+{
+    [_stepModel removeObserver:self forKeyPath:@"stepsToday"];
 }
 
 
@@ -117,9 +92,7 @@
   self.checkTime = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(triggerAlarm:) userInfo:nil repeats:true];
   NSLog(@"%@", self.alarmTime);
     
-    NSString *location =  [self deviceLocation];
-    NSLog(@"This is me bubas");
-    NSLog(@"%@", location);
+    
   
 }//commitTime
 
@@ -188,12 +161,9 @@
             self.stepsLabel.textColor = [UIColor redColor];
         }
     });
+
 }
 
-- (void)dealloc
-{
-    [_stepModel removeObserver:self forKeyPath:@"stepsToday"];
-}
 
 #pragma mark - Notifications
 
@@ -203,6 +173,7 @@
 {
     [self _updateSteps:_stepModel.stepsToday];
 }
+
 
 
 
