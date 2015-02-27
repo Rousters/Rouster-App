@@ -125,7 +125,7 @@
                                                         handler:^(UIAlertAction * action) {
                                                             
                                                             //[self.soundController stopSound];
-                                                          
+                                                          self.globalSteps = 0;
                                                           NSDate *dateToConvertForDB = [NSDate date];
                                                           NSString *dateForDB = [NSString stringWithFormat:@"%.0f", [dateToConvertForDB timeIntervalSince1970]];
                                                           [[NetworkController sharedService]alarmConfirmed:dateForDB];

@@ -35,10 +35,44 @@
                     <view key="view" contentMode="scaleToFill" id="qDN-45-t3o">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEy-RQ-Va5">
+                                <rect key="frame" x="243" y="250" width="114" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="114" id="VRx-yW-Xij"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nf-0T-sLR">
+                                <rect key="frame" x="232" y="224" width="136" height="18"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Current Score:">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="Copperplate"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.73147533669999998" green="0.80463199460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="VEy-RQ-Va5" firstAttribute="centerX" secondItem="qDN-45-t3o" secondAttribute="centerX" id="Fje-va-cxu"/>
+                            <constraint firstItem="r1H-Fq-OWL" firstAttribute="top" secondItem="VEy-RQ-Va5" secondAttribute="bottom" constant="202" id="RlF-nv-TNy"/>
+                            <constraint firstItem="VEy-RQ-Va5" firstAttribute="top" secondItem="dCy-k4-AfW" secondAttribute="bottom" constant="230" id="lI0-Pu-GiW"/>
+                            <constraint firstItem="VEy-RQ-Va5" firstAttribute="top" secondItem="0nf-0T-sLR" secondAttribute="bottom" constant="8" symbolic="YES" id="lWH-A2-CrW"/>
+                            <constraint firstItem="0nf-0T-sLR" firstAttribute="centerX" secondItem="VEy-RQ-Va5" secondAttribute="centerX" id="zBw-zu-Crq"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="STATS" image="Dashboard" id="57d-Pm-0b6"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="scoreLabel" destination="VEy-RQ-Va5" id="7qw-EO-mQi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDr-4d-azc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,5 +15,6 @@
 -(void)createUser;
 -(void)alarmSet:(NSString*)alarmTime;
 -(void)alarmConfirmed:(NSString *)alarmTime;
+-(void)getScore:(void (^)(NSNumber *score, NSString *error))completionHandler;
 
 @end

@@ -245,4 +245,60 @@
   }//if token nil
 }//alarm confirmed
 
+
+
+-(void)getScore:(void (^)(NSNumber *score, NSString *error))completionHandler {
+  
+  
+  NSString *localToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+  if (localToken != nil) {
+    
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceUUID"];
+    
+    NSString *urlString             = @"http://rouster.herokuapp.com/get_points";
+    NSURL *url                      = [NSURL URLWithString:urlString];
+    
+    NSMutableURLRequest *request    = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:localToken forHTTPHeaderField:@"eat"];
+    [request setValue:userId forHTTPHeaderField:@"id"];
+    
+    
+    NSURLSession *session           = [NSURLSession sharedSession];
+    
+    NSURLSessionTask *dataTask      = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+      
+      if (error) {
+        NSLog(@"could not connet %@",error.description);
+      } else {
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        NSInteger statusCode            = httpResponse.statusCode;
+        NSLog(@"the status code for post was %lu", statusCode);
+        NSLog(@"the response was %@", httpResponse.description);
+        switch (statusCode) {
+            
+          case 200 ... 299: {
+            
+            if (data != nil) {
+              
+              NSDictionary* jsondictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+              NSNumber* points = jsondictionary[@"pointCount"];
+              dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(points,nil);
+              });
+            }
+            break;
+          }//case 200..299
+          default:
+            NSLog(@"%ld",(long)statusCode);
+            break;
+        }//switch
+      }//if else
+    }];//data task
+    [dataTask resume];
+  }//if token nil
+}//alarm confirmed
+
 @end
