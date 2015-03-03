@@ -21,7 +21,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "DTStepModelController.h"
 #import "NetworkController.h"
-//@import CoreMotion;
+@import CoreMotion;
 
 
 @interface AlarmViewController () <CLLocationManagerDelegate>
@@ -147,7 +147,7 @@
                                                         handler:^(UIAlertAction * action) {
                                                             
                                                             //[self.soundController stopSound];
-                                                          self.globalSteps = 0;
+                                                           self.globalSteps = 0;
                                                           NSDate *dateToConvertForDB = [NSDate date];
                                                           NSString *dateForDB = [NSString stringWithFormat:@"%.0f", [dateToConvertForDB timeIntervalSince1970]];
                                                           [[NetworkController sharedService]alarmConfirmed:dateForDB];
