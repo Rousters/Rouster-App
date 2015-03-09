@@ -203,6 +203,24 @@
             </objects>
             <point key="canvasLocation" x="718" y="319"/>
         </scene>
+        <!--Welcome View-->
+        <scene sceneID="eRX-QW-Pec">
+            <objects>
+                <viewController title="Welcome View" id="EL7-fA-xhu" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sIe-ud-OC0"/>
+                        <viewControllerLayoutGuide type="bottom" id="S12-CA-DAR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3bG-nr-ZdS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VwR-Br-kop" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-110" y="249"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rwo-O3-rMm">
             <objects>
