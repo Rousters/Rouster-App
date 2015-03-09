@@ -112,19 +112,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.19999999999999968" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gho-Vp-BHL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.71806786199999995" green="0.92009981279999997" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </imageView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="PCL-in-h24">
                                 <rect key="frame" x="0.0" y="219" width="600" height="162"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <date key="date" timeIntervalSinceReferenceDate="446423535.34786201">
                                     <!--2015-02-23 22:32:15 +0000-->
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTQ-ex-EU0">
-                                <rect key="frame" x="120" y="106" width="362" height="26"/>
+                                <rect key="frame" x="209" y="106" width="184" height="17"/>
                                 <attributedString key="attributedText">
                                     <fragment content="What time will you wake up?">
                                         <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="25" name="Copperplate"/>
+                                            <color key="NSColor" red="0.89030934343434343" green="0.70129714927961517" blue="0.82796844039544737" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="25" name="Roboto-Regular"/>
                                             <font key="NSOriginalFont" size="17" name="Copperplate"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
@@ -132,8 +139,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or7-Xu-Ila">
-                                <rect key="frame" x="217" y="416" width="166" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or7-Xu-Ila">
+                                <rect key="frame" x="217" y="425" width="166" height="21"/>
                                 <color key="backgroundColor" red="0.9215686917" green="0.98431378599999997" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="EFM-pC-IFX"/>
@@ -143,8 +150,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEPS:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnt-9R-pkS">
-                                <rect key="frame" x="217" y="394" width="166" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="STEPS:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnt-9R-pkS">
+                                <rect key="frame" x="217" y="403" width="166" height="21"/>
                                 <color key="backgroundColor" red="0.9215686917" green="0.98431378599999997" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="166" id="H2H-EC-vpk"/>
@@ -154,14 +161,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awu-qY-Xxf">
-                                <rect key="frame" x="255" y="478" width="91" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="ssS-Rf-AUc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="awu-qY-Xxf">
+                                <rect key="frame" x="256" y="466" width="100" height="60"/>
+                                <color key="backgroundColor" red="0.47613105876613226" green="0.5684679824024117" blue="0.89141414141414144" alpha="0.089999999999999997" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <state key="normal" title="Commit">
-                                    <color key="titleColor" red="0.02578686466118316" green="0.66280381941111099" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.89088147095959591" green="0.70197514112487536" blue="0.86664502105753716" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="commitTime:" destination="J74-pY-bu3" eventType="touchUpInside" id="Hsf-iS-z5I"/>
@@ -170,20 +175,20 @@
                         </subviews>
                         <color key="backgroundColor" red="0.73147533669999998" green="0.80463199460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="awu-qY-Xxf" firstAttribute="top" secondItem="or7-Xu-Ila" secondAttribute="bottom" constant="41" id="4r6-7V-FKQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gho-Vp-BHL" secondAttribute="trailing" constant="-16" id="5CU-Dx-BYd"/>
                             <constraint firstItem="or7-Xu-Ila" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leadingMargin" constant="201" id="6cW-Y5-gbp"/>
-                            <constraint firstItem="awu-qY-Xxf" firstAttribute="centerX" secondItem="PCL-in-h24" secondAttribute="centerX" id="8eo-Np-ikn"/>
                             <constraint firstItem="CTQ-ex-EU0" firstAttribute="top" secondItem="wCq-e8-AbN" secondAttribute="bottom" constant="86" id="Ecf-Bg-kFU"/>
+                            <constraint firstItem="Gho-Vp-BHL" firstAttribute="top" secondItem="bID-KU-DyS" secondAttribute="topMargin" id="Edy-ag-ZMP"/>
                             <constraint firstAttribute="trailing" secondItem="PCL-in-h24" secondAttribute="trailing" id="MRP-Sl-VBH"/>
-                            <constraint firstItem="UjX-ot-vew" firstAttribute="top" secondItem="awu-qY-Xxf" secondAttribute="bottom" constant="35" id="S05-Xl-dp1"/>
+                            <constraint firstItem="UjX-ot-vew" firstAttribute="top" secondItem="Gho-Vp-BHL" secondAttribute="bottom" id="VJt-WR-gaz"/>
                             <constraint firstItem="PCL-in-h24" firstAttribute="centerY" secondItem="bID-KU-DyS" secondAttribute="centerY" id="dEe-4D-Rwq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="or7-Xu-Ila" secondAttribute="trailing" constant="201" id="hTU-4u-Fby"/>
                             <constraint firstItem="PCL-in-h24" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leading" id="jbX-R6-T09"/>
                             <constraint firstItem="or7-Xu-Ila" firstAttribute="top" secondItem="Mnt-9R-pkS" secondAttribute="bottom" constant="1" id="ozK-rl-dwX"/>
                             <constraint firstItem="CTQ-ex-EU0" firstAttribute="centerX" secondItem="PCL-in-h24" secondAttribute="centerX" constant="1" id="qcQ-lF-S1g"/>
-                            <constraint firstItem="or7-Xu-Ila" firstAttribute="top" secondItem="PCL-in-h24" secondAttribute="bottom" constant="45" id="r7a-xZ-64H"/>
+                            <constraint firstItem="or7-Xu-Ila" firstAttribute="top" secondItem="PCL-in-h24" secondAttribute="bottom" constant="44" id="r7a-xZ-64H"/>
                             <constraint firstItem="Mnt-9R-pkS" firstAttribute="leading" secondItem="or7-Xu-Ila" secondAttribute="leading" id="u6c-oQ-THC"/>
-                            <constraint firstItem="awu-qY-Xxf" firstAttribute="centerX" secondItem="or7-Xu-Ila" secondAttribute="centerX" id="ye9-cB-XhK"/>
+                            <constraint firstItem="Gho-Vp-BHL" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leadingMargin" constant="-16" id="zED-Qb-NfU"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -206,7 +211,7 @@
         <!--Welcome View-->
         <scene sceneID="eRX-QW-Pec">
             <objects>
-                <viewController title="Welcome View" id="EL7-fA-xhu" sceneMemberID="viewController">
+                <viewController title="Welcome View" id="EL7-fA-xhu" customClass="WelcomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sIe-ud-OC0"/>
                         <viewControllerLayoutGuide type="bottom" id="S12-CA-DAR"/>

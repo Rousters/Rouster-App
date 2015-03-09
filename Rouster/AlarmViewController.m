@@ -55,7 +55,7 @@
     [self _updateSteps:_stepModel.stepsToday];
   [[NetworkController sharedService]getUUID];
   [[NetworkController sharedService]createUser];
-  
+  self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Main Background"]];
   self.soundController = [[SoundController alloc]init];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
