@@ -3,14 +3,25 @@
 //  Rouster
 //
 //  Created by Eric Mentele on 2/23/15.
-//  Copyright (c) 2015 Eric Mentele. All rights reserved.
-//
+//  Copyright (c) 2015 Rodrigo Carballo & Eric Mentele. All rights reserved.
+
+/*
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 
 #import "AlarmViewController.h"
 #import "SoundController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "DTStepModelController.h"
 #import "NetworkController.h"
+@import CoreMotion;
 
 
 @interface AlarmViewController () <CLLocationManagerDelegate>
@@ -25,7 +36,7 @@
 @property (weak, nonatomic  ) NSTimer         * checkSteps;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, assign) NSInteger globalSteps;
-
+//@property (strong,nonatomic) CMGyroData* rotation;
 @end
 
 @implementation AlarmViewController
@@ -51,10 +62,9 @@
                     options:NSKeyValueObservingOptionNew context:NULL];
     
     [self _updateSteps:_stepModel.stepsToday];
-  
   [[NetworkController sharedService]getUUID];
   [[NetworkController sharedService]createUser];
-  
+  self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Main Background"]];
   self.soundController = [[SoundController alloc]init];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
@@ -107,8 +117,20 @@
   
   [[NetworkController sharedService]alarmSet:dateForDB];
   
+  //detect position to black out screen
+  [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
+  
   
 }//commitTime
+
+
+- (void)orientationChanged:(NSNotification *)notification {
+  // Respond to changes in device orientation
+  NSLog(@"%@",notification.description);
+  
+}
+
 
 -(void) checkSteps:(NSTimer *)stepsCheck {
   
@@ -134,7 +156,7 @@
                                                         handler:^(UIAlertAction * action) {
                                                             
                                                             //[self.soundController stopSound];
-                                                          self.globalSteps = 0;
+                                                           self.globalSteps = 0;
                                                           NSDate *dateToConvertForDB = [NSDate date];
                                                           NSString *dateForDB = [NSString stringWithFormat:@"%.0f", [dateToConvertForDB timeIntervalSince1970]];
                                                           [[NetworkController sharedService]alarmConfirmed:dateForDB];

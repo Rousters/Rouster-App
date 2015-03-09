@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		403E9C511AA0C30A00BDFB0F /* Background07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 403E9C501AA0C30A00BDFB0F /* Background07.jpg */; };
 		4075C80D1A9BF227007EA5B3 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4075C80C1A9BF227007EA5B3 /* AlarmViewController.m */; };
 		4075C8131A9BF3FE007EA5B3 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4075C8121A9BF3FE007EA5B3 /* InstructionsViewController.m */; };
 		4075C8161A9BF61E007EA5B3 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4075C8151A9BF61E007EA5B3 /* DashboardViewController.m */; };
@@ -24,6 +23,7 @@
 		40A40C791A97A52000D4F834 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A40C771A97A52000D4F834 /* LaunchScreen.xib */; };
 		40A40C851A97A52100D4F834 /* RousterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C841A97A52100D4F834 /* RousterTests.m */; };
 		40A40C911A97B9EB00D4F834 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 40A40C901A97B9EB00D4F834 /* .gitignore */; };
+		40B22EE51AAD658800A26731 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B22EE41AAD658800A26731 /* WelcomeViewController.m */; };
 		488B6F531A99953B004BDF1E /* Tasks in Resources */ = {isa = PBXBuildFile; fileRef = 488B6F521A99953B004BDF1E /* Tasks */; };
 		48C67D471A9FEF5A002736A3 /* DTStepModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C67D461A9FEF5A002736A3 /* DTStepModelController.m */; };
 /* End PBXBuildFile section */
@@ -39,7 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		403E9C501AA0C30A00BDFB0F /* Background07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Background07.jpg; sourceTree = "<group>"; };
 		4075C80B1A9BF227007EA5B3 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
 		4075C80C1A9BF227007EA5B3 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
 		4075C8111A9BF3FE007EA5B3 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
@@ -67,6 +66,8 @@
 		40A40C831A97A52100D4F834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40A40C841A97A52100D4F834 /* RousterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RousterTests.m; sourceTree = "<group>"; };
 		40A40C901A97B9EB00D4F834 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		40B22EE31AAD658800A26731 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		40B22EE41AAD658800A26731 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		48132FAC1A9CFCD2005BEF07 /* Rouster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Rouster.entitlements; sourceTree = "<group>"; };
 		488B6F521A99953B004BDF1E /* Tasks */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tasks; sourceTree = "<group>"; };
 		48C67D451A9FEF5A002736A3 /* DTStepModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTStepModelController.h; sourceTree = "<group>"; };
@@ -110,14 +111,8 @@
 				40A40C6A1A97A52000D4F834 /* AppDelegate.m */,
 				4075C82A1A9E867B007EA5B3 /* NetworkController.h */,
 				4075C82B1A9E867B007EA5B3 /* NetworkController.m */,
-				4075C80B1A9BF227007EA5B3 /* AlarmViewController.h */,
-				4075C80C1A9BF227007EA5B3 /* AlarmViewController.m */,
 				48C67D451A9FEF5A002736A3 /* DTStepModelController.h */,
 				48C67D461A9FEF5A002736A3 /* DTStepModelController.m */,
-				4075C8111A9BF3FE007EA5B3 /* InstructionsViewController.h */,
-				4075C8121A9BF3FE007EA5B3 /* InstructionsViewController.m */,
-				4075C8141A9BF61E007EA5B3 /* DashboardViewController.h */,
-				4075C8151A9BF61E007EA5B3 /* DashboardViewController.m */,
 			);
 			name = "Controller Layer";
 			sourceTree = "<group>";
@@ -152,6 +147,14 @@
 		4075C8261A9E83EA007EA5B3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4075C80B1A9BF227007EA5B3 /* AlarmViewController.h */,
+				4075C80C1A9BF227007EA5B3 /* AlarmViewController.m */,
+				4075C8111A9BF3FE007EA5B3 /* InstructionsViewController.h */,
+				4075C8121A9BF3FE007EA5B3 /* InstructionsViewController.m */,
+				4075C8141A9BF61E007EA5B3 /* DashboardViewController.h */,
+				4075C8151A9BF61E007EA5B3 /* DashboardViewController.m */,
+				40B22EE31AAD658800A26731 /* WelcomeViewController.h */,
+				40B22EE41AAD658800A26731 /* WelcomeViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -190,7 +193,6 @@
 		40A40C651A97A52000D4F834 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				403E9C501AA0C30A00BDFB0F /* Background07.jpg */,
 				4075C8201A9D3920007EA5B3 /* Sounds */,
 				40A40C901A97B9EB00D4F834 /* .gitignore */,
 				40A40C661A97A52000D4F834 /* Info.plist */,
@@ -310,7 +312,6 @@
 				488B6F531A99953B004BDF1E /* Tasks in Resources */,
 				40A40C791A97A52000D4F834 /* LaunchScreen.xib in Resources */,
 				40A40C761A97A52000D4F834 /* Images.xcassets in Resources */,
-				403E9C511AA0C30A00BDFB0F /* Background07.jpg in Resources */,
 				4075C8251A9E70F2007EA5B3 /* readme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +336,7 @@
 				40A40C6E1A97A52000D4F834 /* Rouster.xcdatamodeld in Sources */,
 				4075C82C1A9E867B007EA5B3 /* NetworkController.m in Sources */,
 				4075C81F1A9D3811007EA5B3 /* SoundController.m in Sources */,
+				40B22EE51AAD658800A26731 /* WelcomeViewController.m in Sources */,
 				40A40C6B1A97A52000D4F834 /* AppDelegate.m in Sources */,
 				48C67D471A9FEF5A002736A3 /* DTStepModelController.m in Sources */,
 				4075C8131A9BF3FE007EA5B3 /* InstructionsViewController.m in Sources */,
