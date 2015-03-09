@@ -25,7 +25,6 @@
 		40A40C851A97A52100D4F834 /* RousterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A40C841A97A52100D4F834 /* RousterTests.m */; };
 		40A40C911A97B9EB00D4F834 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 40A40C901A97B9EB00D4F834 /* .gitignore */; };
 		488B6F531A99953B004BDF1E /* Tasks in Resources */ = {isa = PBXBuildFile; fileRef = 488B6F521A99953B004BDF1E /* Tasks */; };
-		48C2FCAF1AA0E3BA005230F5 /* Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C2FCAE1AA0E3BA005230F5 /* Clock.png */; };
 		48C67D471A9FEF5A002736A3 /* DTStepModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C67D461A9FEF5A002736A3 /* DTStepModelController.m */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +69,6 @@
 		40A40C901A97B9EB00D4F834 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		48132FAC1A9CFCD2005BEF07 /* Rouster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Rouster.entitlements; sourceTree = "<group>"; };
 		488B6F521A99953B004BDF1E /* Tasks */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tasks; sourceTree = "<group>"; };
-		48C2FCAE1AA0E3BA005230F5 /* Clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Clock.png; path = ../../../../Pictures/Clock.png; sourceTree = "<group>"; };
 		48C67D451A9FEF5A002736A3 /* DTStepModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTStepModelController.h; sourceTree = "<group>"; };
 		48C67D461A9FEF5A002736A3 /* DTStepModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTStepModelController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				40A40C721A97A52000D4F834 /* Main.storyboard */,
-				48C2FCAE1AA0E3BA005230F5 /* Clock.png */,
 				40A40C751A97A52000D4F834 /* Images.xcassets */,
 				40A40C771A97A52000D4F834 /* LaunchScreen.xib */,
 			);
@@ -314,7 +311,6 @@
 				40A40C791A97A52000D4F834 /* LaunchScreen.xib in Resources */,
 				40A40C761A97A52000D4F834 /* Images.xcassets in Resources */,
 				403E9C511AA0C30A00BDFB0F /* Background07.jpg in Resources */,
-				48C2FCAF1AA0E3BA005230F5 /* Clock.png in Resources */,
 				4075C8251A9E70F2007EA5B3 /* readme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
