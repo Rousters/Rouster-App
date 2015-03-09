@@ -139,18 +139,16 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or7-Xu-Ila">
-                                <rect key="frame" x="217" y="416" width="166" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="EFM-pC-IFX"/>
-                                    <constraint firstAttribute="width" constant="166" id="ooy-3r-Noy"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or7-Xu-Ila">
+                                <rect key="frame" x="217" y="425" width="166" height="21"/>
+                                <color key="backgroundColor" red="0.9215686917" green="0.98431378599999997" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEPS:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnt-9R-pkS">
-                                <rect key="frame" x="217" y="394" width="166" height="21"/>
+                                <rect key="frame" x="217" y="403" width="166" height="21"/>
+                                <color key="backgroundColor" red="0.9215686917" green="0.98431378599999997" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="166" id="HwT-a4-QP9"/>
                                 </constraints>
