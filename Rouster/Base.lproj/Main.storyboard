@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JdR-bx-IGB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JdR-bx-IGB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Instructions-->
         <scene sceneID="dTE-W3-cID">
@@ -64,7 +69,7 @@
                                     <constraint firstAttribute="width" constant="114" id="VRx-yW-Xij"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nf-0T-sLR">
@@ -72,7 +77,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Current Score:">
                                         <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="23" name="Copperplate"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
@@ -119,14 +124,17 @@
                             </imageView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="PCL-in-h24">
                                 <rect key="frame" x="0.0" y="219" width="600" height="162"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <date key="date" timeIntervalSinceReferenceDate="446423535.34786201">
                                     <!--2015-02-23 22:32:15 +0000-->
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTQ-ex-EU0">
                                 <rect key="frame" x="209" y="106" width="184" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="184" id="dDx-F9-SrE"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="What time will you wake up?">
                                         <attributes>
@@ -143,26 +151,27 @@
                                 <rect key="frame" x="217" y="425" width="166" height="21"/>
                                 <color key="backgroundColor" red="0.9215686917" green="0.98431378599999997" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEPS:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnt-9R-pkS">
                                 <rect key="frame" x="217" y="403" width="166" height="21"/>
                                 <color key="backgroundColor" red="0.9215686917" green="0.98431378599999997" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="166" id="HwT-a4-QP9"/>
+                                    <constraint firstAttribute="width" constant="166" id="lAW-4f-Rn4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="awu-qY-Xxf">
-                                <rect key="frame" x="256" y="466" width="100" height="60"/>
+                                <rect key="frame" x="251" y="466" width="100" height="60"/>
                                 <color key="backgroundColor" red="0.47613105876613226" green="0.5684679824024117" blue="0.89141414141414144" alpha="0.089999999999999997" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="0lc-nl-6MJ"/>
+                                    <constraint firstAttribute="width" constant="100" id="YtF-vz-qFm"/>
+                                    <constraint firstAttribute="height" constant="60" id="aH8-gS-KAg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="25"/>
                                 <state key="normal" title="Commit">
                                     <color key="titleColor" red="0.8901960784313725" green="0.82745098039215681" blue="0.027450980392156862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -173,25 +182,26 @@
                         </subviews>
                         <color key="backgroundColor" red="0.73147533669999998" green="0.80463199460000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="or7-Xu-Ila" firstAttribute="leading" secondItem="Mnt-9R-pkS" secondAttribute="leading" id="0VL-79-7dQ"/>
                             <constraint firstItem="or7-Xu-Ila" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leadingMargin" constant="201" id="6cW-Y5-gbp"/>
-                            <constraint firstItem="Gho-Vp-BHL" firstAttribute="bottom" secondItem="UjX-ot-vew" secondAttribute="top" id="DpK-tB-Szw"/>
-                            <constraint firstItem="PCL-in-h24" firstAttribute="leading" secondItem="Gho-Vp-BHL" secondAttribute="leading" id="LGY-pI-4uw"/>
-                            <constraint firstItem="PCL-in-h24" firstAttribute="centerY" secondItem="bID-KU-DyS" secondAttribute="centerY" id="LKN-IW-rzr"/>
-                            <constraint firstItem="PCL-in-h24" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leading" id="MQp-W8-VuJ"/>
-                            <constraint firstItem="PCL-in-h24" firstAttribute="trailing" secondItem="Gho-Vp-BHL" secondAttribute="trailing" id="Pue-B2-dj8"/>
-                            <constraint firstItem="CTQ-ex-EU0" firstAttribute="top" secondItem="wCq-e8-AbN" secondAttribute="bottom" constant="86" id="UN9-GI-cA7"/>
-                            <constraint firstItem="awu-qY-Xxf" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leading" constant="256" id="UwG-Pa-ijx"/>
-                            <constraint firstItem="or7-Xu-Ila" firstAttribute="top" secondItem="Mnt-9R-pkS" secondAttribute="bottom" constant="1" id="VxG-co-Fb7"/>
-                            <constraint firstItem="awu-qY-Xxf" firstAttribute="top" secondItem="or7-Xu-Ila" secondAttribute="bottom" constant="20" id="ZFr-2u-9dT"/>
-                            <constraint firstItem="Mnt-9R-pkS" firstAttribute="trailing" secondItem="or7-Xu-Ila" secondAttribute="trailing" id="gaW-n3-79C"/>
+                            <constraint firstItem="Mnt-9R-pkS" firstAttribute="top" secondItem="PCL-in-h24" secondAttribute="bottom" constant="22" id="DAI-bH-23w"/>
+                            <constraint firstAttribute="centerX" secondItem="PCL-in-h24" secondAttribute="centerX" id="IBf-Ty-nwu"/>
+                            <constraint firstItem="Gho-Vp-BHL" firstAttribute="top" secondItem="bID-KU-DyS" secondAttribute="top" id="KLb-6d-QC7"/>
+                            <constraint firstItem="UjX-ot-vew" firstAttribute="top" secondItem="awu-qY-Xxf" secondAttribute="bottom" constant="25" id="KUf-rD-wmG"/>
+                            <constraint firstAttribute="centerX" secondItem="Mnt-9R-pkS" secondAttribute="centerX" id="Nid-oA-fyh"/>
+                            <constraint firstItem="Mnt-9R-pkS" firstAttribute="leading" secondItem="or7-Xu-Ila" secondAttribute="leading" id="SLy-jg-Ypb"/>
+                            <constraint firstItem="Gho-Vp-BHL" firstAttribute="bottom" secondItem="UjX-ot-vew" secondAttribute="top" id="TaV-Ww-d4D"/>
+                            <constraint firstItem="PCL-in-h24" firstAttribute="top" secondItem="CTQ-ex-EU0" secondAttribute="bottom" constant="96" id="Wbd-f9-IOK"/>
+                            <constraint firstItem="CTQ-ex-EU0" firstAttribute="top" secondItem="wCq-e8-AbN" secondAttribute="bottom" constant="86" id="aYE-Il-1R4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PCL-in-h24" secondAttribute="trailing" constant="-16" id="dMV-fl-AHE"/>
+                            <constraint firstAttribute="centerX" secondItem="awu-qY-Xxf" secondAttribute="centerX" constant="-1" id="dXQ-Hh-f6w"/>
+                            <constraint firstItem="Gho-Vp-BHL" firstAttribute="leading" secondItem="PCL-in-h24" secondAttribute="leading" id="djh-36-Gqo"/>
+                            <constraint firstItem="awu-qY-Xxf" firstAttribute="top" secondItem="or7-Xu-Ila" secondAttribute="bottom" constant="20" id="e1B-JF-ujZ"/>
+                            <constraint firstItem="PCL-in-h24" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leadingMargin" constant="-16" id="ejS-In-ytt"/>
+                            <constraint firstItem="PCL-in-h24" firstAttribute="centerY" secondItem="bID-KU-DyS" secondAttribute="centerY" id="hKG-x4-oym"/>
                             <constraint firstAttribute="trailingMargin" secondItem="or7-Xu-Ila" secondAttribute="trailing" constant="201" id="hTU-4u-Fby"/>
-                            <constraint firstItem="Mnt-9R-pkS" firstAttribute="top" secondItem="PCL-in-h24" secondAttribute="bottom" constant="22" id="i7I-LY-5Zc"/>
-                            <constraint firstItem="Mnt-9R-pkS" firstAttribute="centerX" secondItem="PCL-in-h24" secondAttribute="centerX" id="qUD-Ts-trf"/>
-                            <constraint firstItem="CTQ-ex-EU0" firstAttribute="leading" secondItem="bID-KU-DyS" secondAttribute="leading" constant="209" id="ryN-jy-NYn"/>
-                            <constraint firstAttribute="trailing" secondItem="PCL-in-h24" secondAttribute="trailing" id="vqR-Xt-sET"/>
-                            <constraint firstItem="Gho-Vp-BHL" firstAttribute="top" secondItem="bID-KU-DyS" secondAttribute="top" id="wHF-tl-KxT"/>
-                            <constraint firstItem="UjX-ot-vew" firstAttribute="top" secondItem="awu-qY-Xxf" secondAttribute="bottom" constant="25" id="wRz-0H-UAa"/>
+                            <constraint firstAttribute="centerX" secondItem="CTQ-ex-EU0" secondAttribute="centerX" constant="-1" id="kHS-BA-iCQ"/>
+                            <constraint firstAttribute="centerX" secondItem="Gho-Vp-BHL" secondAttribute="centerX" id="mrG-3l-YKP"/>
+                            <constraint firstAttribute="centerX" secondItem="or7-Xu-Ila" secondAttribute="centerX" id="rWe-Ip-GmI"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
