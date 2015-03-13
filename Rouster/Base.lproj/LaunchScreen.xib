@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -31,7 +30,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="8" width="441" height="43"/>
+                    <rect key="frame" x="20" y="191" width="441" height="43"/>
                     <attributedString key="attributedText">
                         <fragment content="Rouster">
                             <attributes>
@@ -46,16 +45,16 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="2Cl-D1-VfW"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="trailing" secondItem="8ie-xW-0ye" secondAttribute="trailing" id="Dhr-8g-wad"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="8ie-xW-0ye" secondAttribute="leading" id="Ean-zS-hhP"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerX" secondItem="Bod-Ci-laB" secondAttribute="centerX" id="PHp-DT-EDY"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="191" id="1hm-9X-PI0"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="centerX" secondItem="Bod-Ci-laB" secondAttribute="centerX" id="JV6-vW-Le1"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="trailing" secondItem="8ie-xW-0ye" secondAttribute="trailing" id="JgT-b2-OyU"/>
                 <constraint firstAttribute="bottom" secondItem="Bod-Ci-laB" secondAttribute="bottom" id="Unv-c5-Vsk"/>
                 <constraint firstItem="Bod-Ci-laB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VC2-KA-1WV"/>
                 <constraint firstItem="Bod-Ci-laB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WYL-MV-WGD"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="e4h-Vb-0ty"/>
                 <constraint firstAttribute="trailing" secondItem="Bod-Ci-laB" secondAttribute="trailing" id="heG-Of-WIK"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="pDq-hT-mAb"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="8ie-xW-0ye" secondAttribute="leading" id="hf7-al-D7Z"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="j38-oZ-pJ3"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

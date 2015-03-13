@@ -33,7 +33,7 @@
 		8CF5ECBC1AB015B900FD4928 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CF5ECB51AB015B900FD4928 /* Roboto-Medium.ttf */; };
 		8CF5ECBD1AB015B900FD4928 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CF5ECB61AB015B900FD4928 /* Roboto-Regular.ttf */; };
 		8CF5ECBE1AB015B900FD4928 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CF5ECB71AB015B900FD4928 /* Roboto-Thin.ttf */; };
-		9A134B31F242564E52A1281C /* libPods-Rouster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7C7C7DDB691F3910F1DECC /* libPods-Rouster.a */; };
+		9A134B31F242564E52A1281C /* libPods-Rouster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7C7C7DDB691F3910F1DECC /* libPods-Rouster.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
