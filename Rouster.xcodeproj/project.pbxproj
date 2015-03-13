@@ -33,6 +33,7 @@
 		8CF5ECBC1AB015B900FD4928 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CF5ECB51AB015B900FD4928 /* Roboto-Medium.ttf */; };
 		8CF5ECBD1AB015B900FD4928 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CF5ECB61AB015B900FD4928 /* Roboto-Regular.ttf */; };
 		8CF5ECBE1AB015B900FD4928 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CF5ECB71AB015B900FD4928 /* Roboto-Thin.ttf */; };
+		9A134B31F242564E52A1281C /* libPods-Rouster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7C7C7DDB691F3910F1DECC /* libPods-Rouster.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,9 @@
 		8CF5ECB51AB015B900FD4928 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		8CF5ECB61AB015B900FD4928 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		8CF5ECB71AB015B900FD4928 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		9FFA10CA2DA968D78791B6F4 /* Pods-Rouster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rouster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rouster/Pods-Rouster.debug.xcconfig"; sourceTree = "<group>"; };
+		B43E3B6AA9BC4AF92434C60B /* Pods-Rouster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rouster.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rouster/Pods-Rouster.release.xcconfig"; sourceTree = "<group>"; };
+		BF7C7C7DDB691F3910F1DECC /* libPods-Rouster.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Rouster.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A134B31F242564E52A1281C /* libPods-Rouster.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +183,8 @@
 				40A40C641A97A52000D4F834 /* Rouster */,
 				40A40C811A97A52100D4F834 /* RousterTests */,
 				40A40C631A97A52000D4F834 /* Products */,
+				9011B6B68120A3B9EBA38CBC /* Pods */,
+				C0077DDAEC376ECD3D33E5B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -256,6 +263,23 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		9011B6B68120A3B9EBA38CBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FFA10CA2DA968D78791B6F4 /* Pods-Rouster.debug.xcconfig */,
+				B43E3B6AA9BC4AF92434C60B /* Pods-Rouster.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C0077DDAEC376ECD3D33E5B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF7C7C7DDB691F3910F1DECC /* libPods-Rouster.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -263,9 +287,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40A40C881A97A52100D4F834 /* Build configuration list for PBXNativeTarget "Rouster" */;
 			buildPhases = (
+				6FF7631561F4BAF787FB0EA6 /* Check Pods Manifest.lock */,
 				40A40C5E1A97A52000D4F834 /* Sources */,
 				40A40C5F1A97A52000D4F834 /* Frameworks */,
 				40A40C601A97A52000D4F834 /* Resources */,
+				D886318DADED7A59CCC9085B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -368,6 +394,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6FF7631561F4BAF787FB0EA6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D886318DADED7A59CCC9085B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rouster/Pods-Rouster-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		40A40C5E1A97A52000D4F834 /* Sources */ = {
@@ -504,6 +563,7 @@
 		};
 		40A40C891A97A52100D4F834 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FFA10CA2DA968D78791B6F4 /* Pods-Rouster.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -518,6 +578,7 @@
 		};
 		40A40C8A1A97A52100D4F834 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B43E3B6AA9BC4AF92434C60B /* Pods-Rouster.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
