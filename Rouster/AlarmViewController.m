@@ -51,9 +51,6 @@
     [self.commitmentLabel setFont:[UIFont boldSystemFontOfSize:24]];
     
     
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Clock.png"]]];
-    
-    
     [self.timePicker setMinimumDate:[NSDate date]];
     //MARK - ALL PEDOMETER MAGIC
     _stepModel = [[DTStepModelController alloc] init];

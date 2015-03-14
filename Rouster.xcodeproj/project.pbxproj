@@ -340,7 +340,7 @@
 					};
 					40A40C7D1A97A52000D4F834 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 33F9QSSJDD;
+						DevelopmentTeam = 8F48NKUJX6;
 						TestTargetID = 40A40C611A97A52000D4F834;
 					};
 				};
