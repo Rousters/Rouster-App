@@ -139,6 +139,7 @@
 		4075C8101A9BF3C7007EA5B3 /* View Layer */ = {
 			isa = PBXGroup;
 			children = (
+				40A40C751A97A52000D4F834 /* Images.xcassets */,
 				40A40C721A97A52000D4F834 /* Main.storyboard */,
 				40A40C771A97A52000D4F834 /* LaunchScreen.xib */,
 			);
@@ -241,7 +242,6 @@
 		8CF5ECAF1AB014B400FD4928 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				40A40C751A97A52000D4F834 /* Images.xcassets */,
 				8CF5ECB01AB014E900FD4928 /* Fonts */,
 				40A40C651A97A52000D4F834 /* Supporting Files */,
 				4075C8201A9D3920007EA5B3 /* Sounds */,

@@ -81,6 +81,8 @@
   
 }//viewDidLoad
 
+
+
 - (void)dealloc
 {
     [_stepModel removeObserver:self forKeyPath:@"stepsToday"];
@@ -122,11 +124,13 @@
 }//commitTime
 
 
+
 - (void)orientationChanged:(NSNotification *)notification {
   // Respond to changes in device orientation
   NSLog(@"%@",notification.description);
   
 }
+
 
 
 -(void) checkSteps:(NSTimer *)stepsCheck {
